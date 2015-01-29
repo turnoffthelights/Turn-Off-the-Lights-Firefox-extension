@@ -1,0 +1,43 @@
+content TurnOfftheLights chrome/content/ contentaccessible=yes
+overlay chrome://browser/content/browser.xul chrome://TurnOfftheLights/content/browser.xul
+
+locale    TurnOfftheLights   af				chrome/locale/af/        
+locale    TurnOfftheLights   ar				chrome/locale/ar/
+locale    TurnOfftheLights   bg				chrome/locale/bg/
+locale    TurnOfftheLights   ca				chrome/locale/ca/
+locale    TurnOfftheLights   cs				chrome/locale/cs/
+locale    TurnOfftheLights   da				chrome/locale/da/
+locale    TurnOfftheLights   de				chrome/locale/de/
+locale    TurnOfftheLights   el				chrome/locale/el/
+locale    TurnOfftheLights   en-US			chrome/locale/en-US/
+locale    TurnOfftheLights   es				chrome/locale/es/
+locale    TurnOfftheLights   fi				chrome/locale/fi/
+locale    TurnOfftheLights   fr				chrome/locale/fr/
+locale    TurnOfftheLights   he				chrome/locale/he/
+locale    TurnOfftheLights   hi				chrome/locale/hi/
+locale    TurnOfftheLights   hr				chrome/locale/hr/
+locale    TurnOfftheLights   hu				chrome/locale/hu/
+locale    TurnOfftheLights   id				chrome/locale/id/
+locale    TurnOfftheLights   it				chrome/locale/it/
+locale    TurnOfftheLights   ja				chrome/locale/ja/
+locale    TurnOfftheLights   ko				chrome/locale/ko/
+locale    TurnOfftheLights   lt				chrome/locale/lt/
+locale    TurnOfftheLights   lv				chrome/locale/lv/
+locale    TurnOfftheLights   nl				chrome/locale/nl/
+locale    TurnOfftheLights   no				chrome/locale/no/
+locale    TurnOfftheLights   pl				chrome/locale/pl/
+locale    TurnOfftheLights   pt				chrome/locale/pt/
+locale    TurnOfftheLights   ro				chrome/locale/ro/
+locale    TurnOfftheLights   ru				chrome/locale/ru/
+locale    TurnOfftheLights   sk				chrome/locale/sk/
+locale    TurnOfftheLights   sl				chrome/locale/sl/
+locale    TurnOfftheLights   sr				chrome/locale/sr/
+locale    TurnOfftheLights   sv				chrome/locale/sv/
+locale    TurnOfftheLights   th				chrome/locale/th/
+locale    TurnOfftheLights   tr				chrome/locale/tr/
+locale    TurnOfftheLights   uk				chrome/locale/uk/
+locale    TurnOfftheLights   vi				chrome/locale/vi/
+locale    TurnOfftheLights   zh-CN			chrome/locale/zh-CN/
+locale    TurnOfftheLights   zh-TW			chrome/locale/zh-TW/
+
+style chrome://global/content/customizeToolbar.xul chrome://TurnOfftheLights/content/css/toolbar-button.css

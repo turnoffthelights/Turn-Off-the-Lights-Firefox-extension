@@ -1,0 +1,14 @@
+﻿<!ENTITY label "Turn Off the Lights">
+<!ENTITY tooltiptext "Turn Off the Lights">
+<!ENTITY videotitle "Fokusera på denna video">
+<!ENTITY pagetitle "Dämpa denna sida">
+<!ENTITY optiontitle "Alternativ">
+<!ENTITY sharetitle "Dela det här">
+<!ENTITY welcomeguidetitle "Välkommen Guide">
+<!ENTITY tellafriend "Tipsa en vän">
+<!ENTITY sendatweet "Skicka en Tweet">
+<!ENTITY postonfacebook "Gör ett inlägg på Facebook">
+<!ENTITY postongoogleplus "Gör ett inlägg på Google +">
+<!ENTITY ratetitle "Betygsätt detta tillägg">
+<!ENTITY donatetitle "Stöd utvecklingen">
+<!ENTITY manageaddontitle "Hantera">

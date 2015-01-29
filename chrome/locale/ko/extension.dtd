@@ -1,0 +1,14 @@
+﻿<!ENTITY label "Turn off the Lights">
+<!ENTITY tooltiptext "Turn off the Lights">
+<!ENTITY videotitle "이 비디오에 초점 맞추기">
+<!ENTITY pagetitle "배경 어둡게 하기">
+<!ENTITY optiontitle "옵션">
+<!ENTITY sharetitle "공유하기">
+<!ENTITY welcomeguidetitle "환영 가이드">
+<!ENTITY tellafriend "친구에게 알려주기">
+<!ENTITY sendatweet "트윗하기">
+<!ENTITY postonfacebook "페이스북에서 공유">
+<!ENTITY postongoogleplus "Google +에서 공유">
+<!ENTITY ratetitle "평점주기">
+<!ENTITY donatetitle "개발자를 지원하기">
+<!ENTITY manageaddontitle "관리">

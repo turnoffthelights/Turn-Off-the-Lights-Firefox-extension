@@ -1,0 +1,54 @@
+/*
+//================================================
+
+Turn Off the Lights
+The entire page will be fading to dark, so you can watch the video as if you were in the cinema.
+Copyright (C) 2015 Stefan vd
+www.stefanvd.net
+www.turnoffthelights.com
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+
+To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.0/
+
+//================================================
+*/
+
+#TurnOfftheLights-button{list-style-image:url(chrome://TurnOfftheLights/content/icons/icon24.png)}
+[iconsize="small"] #TurnOfftheLights-button{list-style-image:url(chrome://TurnOfftheLights/content/icons/icon16.png)}
+#TurnOfftheLights-button.inactive{list-style-image:url(chrome://TurnOfftheLights/content/icons/icon24.png)}
+[iconsize="small"] #TurnOfftheLights-button.inactive{list-style-image:url(chrome://TurnOfftheLights/content/icons/icon16.png)}
+
+.mymenu-lamp{list-style-image:url(chrome://TurnOfftheLights/content/icons/icon16.png)}
+.mymenu-rate{list-style-image:url(chrome://TurnOfftheLights/content/images/browser_star.png)}
+.mymenu-tweet{list-style-image:url(chrome://TurnOfftheLights/content/images/IconTwitter.png)}
+.mymenu-facebook{list-style-image:url(chrome://TurnOfftheLights/content/images/IconFacebook.png)}
+.mymenu-googleplus{list-style-image:url(chrome://TurnOfftheLights/content/images/IconGoogle.png)}
+
+@media (min-resolution:2dppx){
+#TurnOfftheLights-button{list-style-image:url(chrome://TurnOfftheLights/content/icons/icon24@2x.png)}
+[iconsize="small"] #TurnOfftheLights-button{list-style-image:url(chrome://TurnOfftheLights/content/icons/icon16@2x.png)}
+#TurnOfftheLights-button.inactive{list-style-image:url(chrome://TurnOfftheLights/content/icons/icon24@2x.png)}
+[iconsize="small"] #TurnOfftheLights-button.inactive{list-style-image:url(chrome://TurnOfftheLights/content/icons/icon16@2x.png)}
+
+#TurnOfftheLights-button > .toolbarbutton-icon{width:24px;height:24px}
+
+.mymenu-lamp{list-style-image:url(chrome://TurnOfftheLights/content/icons/icon16@2x.png)}
+.mymenu-rate{list-style-image:url(chrome://TurnOfftheLights/content/images/browser_star@2.png)}
+.mymenu-tweet{list-style-image:url(chrome://TurnOfftheLights/content/images/IconTwitter@2.png)}
+.mymenu-facebook{list-style-image:url(chrome://TurnOfftheLights/content/images/IconFacebook@2.png)}
+.mymenu-googleplus{list-style-image:url(chrome://TurnOfftheLights/content/images/IconGoogle@2.png)}
+}

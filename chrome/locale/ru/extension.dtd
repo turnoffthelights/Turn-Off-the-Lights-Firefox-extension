@@ -1,0 +1,14 @@
+﻿<!ENTITY label "Выключить свет">
+<!ENTITY tooltiptext "Выключить свет">
+<!ENTITY videotitle "Выделить это видео">
+<!ENTITY pagetitle "Затемнить эту страницу">
+<!ENTITY optiontitle "Параметры">
+<!ENTITY sharetitle "Поделиться">
+<!ENTITY welcomeguidetitle "Начальное руководство">
+<!ENTITY tellafriend "Рассказать друзьям">
+<!ENTITY sendatweet "Отправить твит">
+<!ENTITY postonfacebook "Пост на Facebook">
+<!ENTITY postongoogleplus "Пост на Google +">
+<!ENTITY ratetitle "Оценить это расширение">
+<!ENTITY donatetitle "Поддержать разработчика">
+<!ENTITY manageaddontitle "Управление">

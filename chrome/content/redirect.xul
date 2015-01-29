@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        hidden="true"
+        id="options"
+        onload="displayOptionsPage();">
+  <script>
+  function displayOptionsPage() {
+    var gBrowser = Components.classes['@mozilla.org/appshell/window-mediator;1']
+                             .getService(Components.interfaces.nsIWindowMediator)
+                             .getMostRecentWindow('navigator:browser')
+                             .gBrowser;
+    gBrowser.selectedTab = gBrowser.addTab("chrome://TurnOfftheLights/content/options.html");
+    document.getElementById("options").cancelDialog();
+  }
+  </script>
+</dialog>

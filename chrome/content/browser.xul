@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE window SYSTEM "chrome://TurnOfftheLights/locale/extension.dtd">
+<?xml-stylesheet href="chrome://TurnOfftheLights/content/css/toolbar-button.css" type="text/css"?>
+<overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" id="totl-overlay">
+	<script type="application/x-javascript" src="main.js"></script>
+	<toolbarpalette id="BrowserToolbarPalette">
+		<toolbarbutton oncommand="TurnOfftheLights.onToolbarButtonClick(event);"
+		onclick="TurnOfftheLights.onToolbarButtonClick(event);"
+					   class="toolbarbutton-1"
+					   id="TurnOfftheLights-button"
+					   label="&label;"
+					   tooltiptext="&tooltiptext;">
+					   
+	<menupopup id="rightclickmenu" noautohide="false" noautofocus="true">
+			<menuitem id="TurnOfftheLightsproductname" label="&label;" oncommand="TurnOfftheLights.productnameClick()"/>
+			<menuseparator />
+			<menuitem id="TurnOfftheLightsoptionpage" label="&optiontitle;" oncommand="TurnOfftheLights.optionpageClick()"/>
+			<menuitem id="TurnOfftheLightswelcomeguidepage" label="&welcomeguidetitle;" oncommand="TurnOfftheLights.welcomeguidepageClick()"/>
+			<menuitem id="TurnOfftheLightsdonatepage" label="&donatetitle;" oncommand="TurnOfftheLights.donatepageClick()"/>
+			<menuitem id="TurnOfftheLightsratepage" label="&ratetitle;" oncommand="TurnOfftheLights.ratepageClick()" class="menuitem-iconic mymenu-rate"/>
+			<menuseparator />
+			<menu label="&sharetitle;">
+				<menupopup>
+				<menuitem id="TurnOfftheLightssharepage" label="&tellafriend;" oncommand="TurnOfftheLights.tellafriendpageClick()"/>
+				<menuseparator />
+				<menuitem id="TurnOfftheLightstweetpage" label="&sendatweet;" oncommand="TurnOfftheLights.tweetpageClick()" class="menuitem-iconic mymenu-tweet"/>
+				<menuitem id="TurnOfftheLightsfacebookpage" label="&postonfacebook;" oncommand="TurnOfftheLights.facebookpageClick()" class="menuitem-iconic mymenu-facebook"/>
+				<menuitem id="TurnOfftheLightsgooglepluspage" label="&postongoogleplus;" oncommand="TurnOfftheLights.googlepluspageClick()" class="menuitem-iconic mymenu-googleplus"/>
+				</menupopup>
+			</menu>
+			<menuseparator />
+			<menuitem id="TurnOfftheLightsmanagepage" label="&manageaddontitle;" oncommand="TurnOfftheLights.managepageClick()"/>
+		</menupopup>
+		
+		</toolbarbutton>
+	</toolbarpalette>
+
+	<popup id="contentAreaContextMenu">
+			<menuitem id="TurnOfftheLightsvideo" label="&videotitle;" oncommand="TurnOfftheLights.onToolbarButtonClick()" class="menuitem-iconic mymenu-lamp"/>
+			<menuitem id="TurnOfftheLightspage" label="&pagetitle;" oncommand="TurnOfftheLights.onToolbarButtonClick()" class="menuitem-iconic mymenu-lamp"/>
+	</popup>
+
+    <keyset>
+        <key id="TurnOffthelightskeycode" modifiers="control shift" key="l" oncommand="TurnOfftheLights.shortcut();"/>
+		<key id="TurnOffthelightskeyeastereggs" key="t" oncommand="TurnOfftheLights.keytheater();"/>
+        <key id="TurnOffthelightskeydefaultopacity" modifiers="alt" keycode="VK_F8" oncommand="TurnOfftheLights.shortcutdefaultopacity();"/>
+        <key id="TurnOffthelightskeysaveopacity" modifiers="alt" keycode="VK_F9" oncommand="TurnOfftheLights.shortcutsaveopacity();"/>
+        <key id="TurnOffthelightskeyeyeprotection" modifiers="alt" keycode="VK_F10" oncommand="TurnOfftheLights.shortcuteyeprotection();"/>
+        <key id="TurnOffthelightskeyopacityincrease" modifiers="alt" keycode="VK_UP" oncommand="TurnOfftheLights.shortcutopacityincrease();"/>
+        <key id="TurnOffthelightskeyopacitydecrease" modifiers="alt" keycode="VK_DOWN" oncommand="TurnOfftheLights.shortcutopacitydecrease();"/>
+        <key id="TurnOffthelightskeyalllightsoff" modifiers="alt" keycode="VK_MULTIPLY" oncommand="TurnOfftheLights.shortcutalllightstab();"/>
+    </keyset>
+</overlay>

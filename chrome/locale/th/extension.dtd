@@ -1,0 +1,14 @@
+﻿<!ENTITY label "ปิดไฟ">
+<!ENTITY tooltiptext "ปิดไฟ">
+<!ENTITY videotitle "โฟกัสภาพนี้">
+<!ENTITY pagetitle "เข้มหน้านี้">
+<!ENTITY optiontitle "ตัวเลือก">
+<!ENTITY sharetitle "แชร์สิ่งนี้">
+<!ENTITY welcomeguidetitle "ยินดีต้อนรับสู่การแนะนำ">
+<!ENTITY tellafriend "บอกเพื่อน">
+<!ENTITY sendatweet "ส่งไปที่ Tweet">
+<!ENTITY postonfacebook "โพสต์บน Facebook">
+<!ENTITY postongoogleplus "โพสต์บน Google +">
+<!ENTITY ratetitle "ให้คะแนนส่วนขยายนี้">
+<!ENTITY donatetitle "สนับสนุนการพัฒนา">
+<!ENTITY manageaddontitle "การจัดการ">
