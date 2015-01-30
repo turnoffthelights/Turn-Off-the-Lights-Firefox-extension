@@ -40,7 +40,7 @@ if ("undefined" == typeof(TurnOfftheLights)) {
     ns.init = function () {
 // welcome page
 var firstrun = Services.prefs.getBoolPref("extensions.TurnOfftheLights.firstrun");
-var curVersion = "3.1";
+var curVersion = "3.1.0.1";
 
 if (firstrun) {
 // Adding button by default ------------
@@ -96,32 +96,33 @@ if (firstrun) {
     if (gBrowser.addEventListener) {
         gBrowser.addEventListener("DOMContentLoaded",pageLoaded,true);
     }
-		
+
 	function pageLoaded(aEvent) {
-    if ((aEvent.originalTarget.nodeName == '#document') && (aEvent.originalTarget.defaultView.location.href == gBrowser.currentURI.spec))
-    {
-	var doc = aEvent.originalTarget; // loaded document
-    var win = doc.defaultView; // loaded window
-    if (win.frameElement) return; // ignore frames
-	
-	var tab = documentToTab(gBrowser.contentDocument);
-	
-	// check if not on firefox "about" or "chrome" page
-	var checktaburl = window.top.getBrowser().selectedBrowser.contentWindow.location.protocol;
-	if(checktaburl != "chrome:"){
-	firefox.tabs.executeScript(tab, {file: "chrome://TurnOfftheLights/content/js/injected.js"});
-	firefox.tabs.executeScript(tab, {file: "chrome://TurnOfftheLights/content/js/content.js"});
-	}
-	
-			var contextmenus = prefManager.getBoolPref("extensions.TurnOfftheLights.contextmenus");
-			if (contextmenus) {
+		// if ((aEvent.originalTarget.nodeName == '#document') && (aEvent.originalTarget.defaultView.location.href == gBrowser.currentURI.spec)){
+		// var doc = aEvent.originalTarget; // loaded document
+		var doc = aEvent.target;
+		var win = doc.defaultView; // loaded window
+		if (win.frameElement) return; // ignore frames
+		
+		var browser = gBrowser.getBrowserForDocument(doc);
+		var tab = documentToTab(browser.contentDocument);
+
+		//check if not on firefox "about" or "chrome" page
+		var checktaburl = browser.contentWindow.location.protocol;
+		if(checktaburl != "chrome:"){
+		firefox.tabs.executeScript(tab, {file: "chrome://TurnOfftheLights/content/js/injected.js"});
+		firefox.tabs.executeScript(tab, {file: "chrome://TurnOfftheLights/content/js/content.js"});
+		}
+
+		var contextmenus = prefManager.getBoolPref("extensions.TurnOfftheLights.contextmenus");
+		if (contextmenus) {
 			actionmenu();
-			} else {
+		} else {
 			document.getElementById("TurnOfftheLightspage").style.display = "none";
 			document.getElementById("TurnOfftheLightsvideo").style.display = "none";
-			}
-    } // end close content script
-}
+		}
+		// } // end close content script
+	}
 
 function actionmenu() {
 	// context menu
@@ -202,7 +203,7 @@ function actionmenu() {
 				nmcustomy: prefManager.getCharPref("extensions.TurnOfftheLights.nmcustomy"), nightactivetime: prefManager.getBoolPref("extensions.TurnOfftheLights.nightactivetime"),
 				nmbegintime: prefManager.getCharPref("extensions.TurnOfftheLights.nmbegintime"), nmendtime: prefManager.getCharPref("extensions.TurnOfftheLights.nmendtime"),
 				lampandnightmode: prefManager.getBoolPref("extensions.TurnOfftheLights.lampandnightmode"), eyechecklistwhite: prefManager.getBoolPref("extensions.TurnOfftheLights.eyechecklistwhite"),
-				eyechecklistblack: prefManager.getBoolPref("extensions.TurnOfftheLights.eyechecklistblack"), autostopDomainsBox: prefManager.getCharPref("extensions.TurnOfftheLights.autostopDomainsBox")
+				eyechecklistblack: prefManager.getBoolPref("extensions.TurnOfftheLights.eyechecklistblack"), autostopDomainsBox: prefManager.getCharPref("extensions.TurnOfftheLights.autostopDomains")
 				});
 			}
 			else if ( request.name == "automatic" ) {

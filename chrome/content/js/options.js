@@ -2250,7 +2250,7 @@ prefManager.setBoolPref("extensions.TurnOfftheLights.nmendtime", mustbesyncon);
 prefManager.setBoolPref("extensions.TurnOfftheLights.lampandnightmode", mustbesyncon);
 prefManager.setBoolPref("extensions.TurnOfftheLights.eyechecklistwhite", mustbesyncon);
 prefManager.setBoolPref("extensions.TurnOfftheLights.eyechecklistblack", mustbesyncon);
-prefManager.setBoolPref("extensions.TurnOfftheLights.autostopDomainsBox", mustbesyncon);
+prefManager.setBoolPref("extensions.TurnOfftheLights.autostopDomains", mustbesyncon);
 });
 
 });
