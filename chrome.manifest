@@ -1,6 +1,4 @@
 content TurnOfftheLights chrome/content/ contentaccessible=yes
-overlay chrome://browser/content/browser.xul chrome://TurnOfftheLights/content/browser.xul
-
 locale    TurnOfftheLights   af				chrome/locale/af/        
 locale    TurnOfftheLights   ar				chrome/locale/ar/
 locale    TurnOfftheLights   bg				chrome/locale/bg/
@@ -40,4 +38,8 @@ locale    TurnOfftheLights   vi				chrome/locale/vi/
 locale    TurnOfftheLights   zh-CN			chrome/locale/zh-CN/
 locale    TurnOfftheLights   zh-TW			chrome/locale/zh-TW/
 
+overlay chrome://browser/content/browser.xul chrome://TurnOfftheLights/content/browser.xul
 style chrome://global/content/customizeToolbar.xul chrome://TurnOfftheLights/content/css/toolbar-button.css
+
+style chrome://TurnOfftheLights/content/browser.xul chrome://TurnOfftheLights/content/css/mac/toolbar-button.css os=Darwin
+style chrome://global/content/customizeToolbar.xul chrome://TurnOfftheLights/content/css/mac/toolbar-button.css os=Darwin

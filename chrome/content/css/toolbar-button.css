@@ -27,28 +27,9 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 //================================================
 */
 
-#TurnOfftheLights-button{list-style-image:url(chrome://TurnOfftheLights/content/icons/icon24.png)}
-[iconsize="small"] #TurnOfftheLights-button{list-style-image:url(chrome://TurnOfftheLights/content/icons/icon16.png)}
-#TurnOfftheLights-button.inactive{list-style-image:url(chrome://TurnOfftheLights/content/icons/icon24.png)}
-[iconsize="small"] #TurnOfftheLights-button.inactive{list-style-image:url(chrome://TurnOfftheLights/content/icons/icon16.png)}
-
-.mymenu-lamp{list-style-image:url(chrome://TurnOfftheLights/content/icons/icon16.png)}
+#TurnOfftheLights-button{list-style-image:url("chrome://TurnOfftheLights/content/icons/icon24.png")}
+toolbar[iconsize="small"] #TurnOfftheLights-button{list-style-image:url("chrome://TurnOfftheLights/content/icons/icon16.png")}
 .mymenu-rate{list-style-image:url(chrome://TurnOfftheLights/content/images/browser_star.png)}
 .mymenu-tweet{list-style-image:url(chrome://TurnOfftheLights/content/images/IconTwitter.png)}
 .mymenu-facebook{list-style-image:url(chrome://TurnOfftheLights/content/images/IconFacebook.png)}
 .mymenu-googleplus{list-style-image:url(chrome://TurnOfftheLights/content/images/IconGoogle.png)}
-
-@media (min-resolution:2dppx){
-#TurnOfftheLights-button{list-style-image:url(chrome://TurnOfftheLights/content/icons/icon24@2x.png)}
-[iconsize="small"] #TurnOfftheLights-button{list-style-image:url(chrome://TurnOfftheLights/content/icons/icon16@2x.png)}
-#TurnOfftheLights-button.inactive{list-style-image:url(chrome://TurnOfftheLights/content/icons/icon24@2x.png)}
-[iconsize="small"] #TurnOfftheLights-button.inactive{list-style-image:url(chrome://TurnOfftheLights/content/icons/icon16@2x.png)}
-
-#TurnOfftheLights-button > .toolbarbutton-icon{width:24px;height:24px}
-
-.mymenu-lamp{list-style-image:url(chrome://TurnOfftheLights/content/icons/icon16@2x.png)}
-.mymenu-rate{list-style-image:url(chrome://TurnOfftheLights/content/images/browser_star@2.png)}
-.mymenu-tweet{list-style-image:url(chrome://TurnOfftheLights/content/images/IconTwitter@2.png)}
-.mymenu-facebook{list-style-image:url(chrome://TurnOfftheLights/content/images/IconFacebook@2.png)}
-.mymenu-googleplus{list-style-image:url(chrome://TurnOfftheLights/content/images/IconGoogle@2.png)}
-}

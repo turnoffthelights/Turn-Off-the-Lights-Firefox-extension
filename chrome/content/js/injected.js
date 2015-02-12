@@ -29,7 +29,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 
 (ytCinema = {
 	players: {objs: [], active: 0},
-	messageEvent: document.createEvent("Event"),
+	messageEvent: document.createEvent("Event"), // old code Firefox doesn't support new Event
 	playerStateChange: function (stateId) {
 		var message = document.getElementById("ytCinemaMessage"),
 			stateIO = "playerStateChange:".concat(stateId);
@@ -111,25 +111,25 @@ startautoplay = window.setInterval(function () {
 					};
 					
 					// New Mutation Summary API Reference
-					var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
-					if (typeof MutationObserver == "function") {
+					// var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+					// if (typeof MutationObserver == "function") {
 						// setup MutationSummary observer
-						var videolist = document.querySelector('body');
-						var observer = new MutationObserver(function(mutations, observer) {
-						triggerDOMChanges();
-						});
+						// var videolist = document.querySelector('body');
+						// var observer = new MutationObserver(function(mutations, observer) {
+						// triggerDOMChanges();
+						// });
 					
-						observer.observe(videolist, {
-							subtree: true,       // observe the subtree rooted at ...videolist...
-							childList: true,     // include childNode insertion/removals
-							characterData: false, // include textContent changes
-							attributes: false     // include changes to attributes within the subtree
-						});
-					} else {
+						// observer.observe(videolist, {
+							// subtree: true,       // observe the subtree rooted at ...videolist...
+							// childList: true,     // include childNode insertion/removals
+							// characterData: false, // include textContent changes
+							// attributes: false     // include changes to attributes within the subtree
+						// });
+					// } else {
 						// setup DOM event listeners
 						// document.addEventListener("DOMNodeRemoved", triggerDOMChanges, false);
 						// document.addEventListener("DOMNodeInserted", triggerDOMChanges, false);
-					}
+					// }
 
 				}(this.ytCinema));				
 			}

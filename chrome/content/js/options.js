@@ -395,7 +395,7 @@ $("select_language").addEventListener('click', function () {updateCountry();},fa
 $("select_language").addEventListener('change', function() {updateCountry();save_options();});
 $("select_dialect").addEventListener('change', function() {save_options();});
 
-	if(prefManager.getCharPref("extensions.TurnOfftheLights.interval")){$('interval').value = prefManager.getCharPref("extensions.TurnOfftheLights.interval");$('slider').value = prefManager.getCharPref("extensions.TurnOfftheLights.interval");} // fix firefox
+	if(prefManager.getCharPref("extensions.TurnOfftheLights.interval")){$('interval').value = prefManager.getCharPref("extensions.TurnOfftheLights.interval");$('slider').value = prefManager.getCharPref("extensions.TurnOfftheLights.interval");}
 	else $('interval').value = 80;
 	if(prefManager.getCharPref("extensions.TurnOfftheLights.lightcolor")){$('lightcolor').value = prefManager.getCharPref("extensions.TurnOfftheLights.lightcolor");}
 	else {$('lightcolor').value = '#000000';}
@@ -435,9 +435,9 @@ $("select_dialect").addEventListener('change', function() {save_options();});
 	if(prefManager.getBoolPref("extensions.TurnOfftheLights.addvideobutton") == true)$('addvideobutton').checked = true;
 	if(prefManager.getBoolPref("extensions.TurnOfftheLights.likebar") == true)$('likebar').checked = true;
 	if(prefManager.getBoolPref("extensions.TurnOfftheLights.ambilight") == true){$('ambilight').checked = true;}
-	if(prefManager.getCharPref("extensions.TurnOfftheLights.ambilightrangeblurradius")){$('ambilightrangeblurradius').value = prefManager.getCharPref("extensions.TurnOfftheLights.ambilightrangeblurradius");$('arangeblur').value = prefManager.getCharPref("extensions.TurnOfftheLights.ambilightrangeblurradius");} //fix firefox
+	if(prefManager.getCharPref("extensions.TurnOfftheLights.ambilightrangeblurradius")){$('ambilightrangeblurradius').value = prefManager.getCharPref("extensions.TurnOfftheLights.ambilightrangeblurradius");$('arangeblur').value = prefManager.getCharPref("extensions.TurnOfftheLights.ambilightrangeblurradius");}
 	else $('ambilightrangeblurradius').value = 70;
-	if(prefManager.getCharPref("extensions.TurnOfftheLights.ambilightrangespreadradius")){$('ambilightrangespreadradius').value = prefManager.getCharPref("extensions.TurnOfftheLights.ambilightrangespreadradius");$('arangespread').value = prefManager.getCharPref("extensions.TurnOfftheLights.ambilightrangespreadradius");} //fix firefox
+	if(prefManager.getCharPref("extensions.TurnOfftheLights.ambilightrangespreadradius")){$('ambilightrangespreadradius').value = prefManager.getCharPref("extensions.TurnOfftheLights.ambilightrangespreadradius");$('arangespread').value = prefManager.getCharPref("extensions.TurnOfftheLights.ambilightrangespreadradius");}
 	else $('ambilightrangespreadradius').value = 20;
 	if(prefManager.getBoolPref("extensions.TurnOfftheLights.mousespotlightt") == true)$('mousespotlightt').checked = true;
 	if(prefManager.getBoolPref("extensions.TurnOfftheLights.ambilightfixcolor") == true)$('ambilightfixcolor').checked = true;
@@ -1191,6 +1191,7 @@ var autostoponly = $('autostoponly');
 if(ambilight.checked == true){
 drawImage();
 }
+
 // show alert warning
 if(ambilightvarcolor.checked == true)
 {$('showwarningambilight').style.display = '';}
