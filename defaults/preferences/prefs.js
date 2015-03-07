@@ -18,7 +18,7 @@ pref("extensions.TurnOfftheLights.eastereggs", false);
 pref("extensions.TurnOfftheLights.contextmenus", false);
 pref("extensions.TurnOfftheLights.readerlargestyle", true);
 pref("extensions.TurnOfftheLights.viewcount", false);
-pref("extensions.TurnOfftheLights.lightimage", "http://turnoffthelights.googlecode.com/files/theater.jpg");
+pref("extensions.TurnOfftheLights.lightimage", "http://www.turnoffthelights.com/extension/images/theater.jpg");
 pref("extensions.TurnOfftheLights.excludedDomains", "{\"http://www.blogger.com\":true,\"http://www.nytimes.com\":true}");
 pref("extensions.TurnOfftheLights.nighttime", false);
 pref("extensions.TurnOfftheLights.begintime", "21:00");

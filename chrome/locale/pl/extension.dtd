@@ -1,14 +1,14 @@
-﻿<!ENTITY label "Wyłącz światła">
-<!ENTITY tooltiptext "Wyłącz światła">
-<!ENTITY videotitle "Wyróżnij ten film">
-<!ENTITY pagetitle "Przyciemnij tą stronę">
-<!ENTITY optiontitle "Opcje">
+﻿<!ENTITY label "Turn Off the Lights">
+<!ENTITY tooltiptext "Turn Off the Lights">
+<!ENTITY videotitle "Wyróżnij to wideo">
+<!ENTITY pagetitle "Przyciemnij tę stronę">
+<!ENTITY optiontitle "Ustawienia">
 <!ENTITY sharetitle "Podziel się tym">
-<!ENTITY welcomeguidetitle "Instrukcja powitalna">
-<!ENTITY tellafriend "Powiedz znajomym">
-<!ENTITY sendatweet "Wyślij Tweeta">
-<!ENTITY postonfacebook "Wyślij posta na Facebooka">
-<!ENTITY postongoogleplus "Wyślij posta na Google +">
-<!ENTITY ratetitle "Oceń to rozszerzenie">
-<!ENTITY donatetitle "Wspieranie rozwoju">
+<!ENTITY welcomeguidetitle "Przewodnik">
+<!ENTITY tellafriend "Poinformuj znajomych">
+<!ENTITY sendatweet "Wyślij tweeta">
+<!ENTITY postonfacebook "Prześlij post na Facebooka">
+<!ENTITY postongoogleplus "Prześlij post na Google +">
+<!ENTITY ratetitle "Oceń ten dodatek">
+<!ENTITY donatetitle "Wesprzyj rozwój">
 <!ENTITY manageaddontitle "Zarządzaj">

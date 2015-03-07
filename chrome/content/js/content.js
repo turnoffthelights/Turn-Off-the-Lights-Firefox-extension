@@ -2,7 +2,7 @@
 /*
 
 Turn Off the Lights
-The entire page will be fading to dark, so you can watch the video as if you were in the cinema.
+The entire page will be fading to dark, so you can watch the videos as if you were in the cinema.
 Copyright (C) 2015 Stefan vd
 www.stefanvd.net
 www.turnoffthelights.com
@@ -322,7 +322,7 @@ var gracePeriod = 250, lastEvent = null, timeout = null;
 							}
 							break;
 						default:
-							console.log("unknown event", data);
+							//console.log("unknown event", data);
 							break;
 					}
 				}
@@ -773,15 +773,15 @@ try {
 	if (countC < 20){countC=countC+.5;}
 	var textcountA = countA + "px";
 	var textcountB = countB + "px";
-	
+
 	if(ambilightvarcolor == true){
 	// Cross detection
 	// if url is the same as the video source
 	// then posible to play real ambilight
 	var cross = null;
-	
+
 	// check for the current page URL
-	var pageurl = location.protocol + '//' + location.host; // http://www.stefanvd.net
+	var pageurl = window.location.protocol + '//' + window.location.host; // http://www.stefanvd.net
 	var pageurllengt = pageurl.length; // lengte url
 
 	function subDomain(url) {
@@ -810,10 +810,10 @@ try {
 	}
 	var yesornosubdomain = subDomain(pageurl);
 
-	if (totlshowtime != typeof HTMLVideoElement !== "undefined" && totlshowtime instanceof HTMLVideoElement) {
+	if (totlshowtime != typeof HTMLVideoElement !== "undefined") {
 		var insideitem = totlshowtime.src;
 		var insideitemlengt = 0;
-		if(insideitem){	var insideitemlengt = insideitem.length; } // lengte url
+		if(insideitem){	var insideitemlengt = insideitem.length; } // length URL
 	} else { var insideitemlengt = "undefined"; }
 
 function runreal(){
@@ -882,7 +882,7 @@ try{
 				var newvivid = document.createElement("canvas");
 				newvivid.setAttribute('id','stefanvdvivideffect');
 				newvivid.style.transform = "scale("+calcvividscale+")";
-				newvivid.style.filter = "url(#blur)";
+				newvivid.style.filter = "blur("+ambilightrangeblurradius+"px)";
 				newvivid.setAttribute('width',totlshowtime.offsetWidth);
 				newvivid.setAttribute('height',totlshowtime.offsetHeight);
 				newvivid.style.opacity = .88;
@@ -890,30 +890,6 @@ try{
 				newvivid.style.top = "0px";
 				newvivid.style.left = "0px";
 				$("player-api").appendChild(newvivid);
-				}
-				// Firefox Workaround
-				if($("stefanvdsvgff")){}else{
-				var NS = "http://www.w3.org/2000/svg";
-				var newvsvgff = document.createElementNS(NS, "svg");
-				newvsvgff.setAttribute('id','stefanvdsvgff');
-				newvsvgff.setAttribute('version','1.1');
-				newvsvgff.setAttribute('height','0');
-				newvsvgff.setAttribute('width','0');
-				newvsvgff.setAttribute('xmlns','http://www.w3.org/2000/svg');
-				document.body.appendChild(newvsvgff);
-				
-				var newvsvgddff = document.createElementNS(NS, "defs");
-				newvsvgff.appendChild(newvsvgddff);
-				
-				var newvsvgfilterff = document.createElementNS(NS, "filter");
-				newvsvgfilterff.setAttribute('id','blur');
-				newvsvgfilterff.setAttribute('x','0');
-				newvsvgfilterff.setAttribute('y','0');
-				newvsvgddff.appendChild(newvsvgfilterff);
-				
-				var newvsvgfilterffgaus = document.createElementNS(NS, "feGaussianBlur");
-				newvsvgfilterffgaus.setAttribute('stdDeviation','10');
-				newvsvgfilterff.appendChild(newvsvgfilterffgaus);
 				}
 		} else {
 		totlshowtime.style.boxShadow = "0px 0px 5px black , 0px -" + countC + "px " + textcountB + " " + textcountA + " " + hex3 + ", 0px " + countC + "px " + textcountB + " " + textcountA + " " + hex1 + ", " + countC + "px 0px " + textcountB + " " + textcountA + " " + hex2 + ", -" + countC + "px 0px " + textcountB + " " + textcountA + " " + hex4 + ""; 
@@ -940,16 +916,17 @@ try{
 		else if(cross.substring(0, 2) == './') {runreal();}
 		else if(cross.substring(0, 3) == '../') {runreal();}
 		else if((cross.substring(0, 4) != 'http') && (cross.substring(0, 5) != 'https') && (cross.substring(0, 3) != 'ftp')) {runreal();}
-		else {rundefault();console.log("HIER 2");}
+		else {rundefault();}
 	} else if ((insideitemlengt > 0) && (yesornosubdomain == false)) {
-		if(insideitem.substring(0, pageurllengt) == pageurl) {runreal()}
+		if(insideitem.substring(0, pageurllengt) == pageurl) {runreal();}
 		else if(insideitem.substring(0, 2) == './') {runreal();}
 		else if(insideitem.substring(0, 3) == '../') {runreal();}
 		else if((insideitem.substring(0, 4) != 'http') && (insideitem.substring(0, 5) != 'https') && (insideitem.substring(0, 3) != 'ftp')) {runreal();}
-		// else {rundefault();} // Firefox Workaround
 		else {runreal();}
-	} //else {rundefault();} // Firefox Workaround
+		// inside not OK go to rundefault();
+	} else {rundefault();}
     // end mission control
+	
 	} else if(ambilightfixcolor == true){
 		if (window.location.href.match(/((http:\/\/(.*youtube\.com\/.*))|(https:\/\/(.*youtube\.com\/.*)))/i)){ youtubewindow.style.boxShadow = "0px 0px 5px black , 0px -" + countC + "px " + textcountB + " " + textcountA + " " + ambilightcolorhex + ", 0px " + countC + "px " + textcountB + " " + textcountA + " " + ambilightcolorhex + ", " + countC + "px 0px " + textcountB + " " + textcountA + " " + ambilightcolorhex + ", -" + countC + "px 0px " + textcountB + " " + textcountA + " " + ambilightcolorhex + ""; }
 		else { totlshowtime.style.boxShadow = "0px 0px 5px black , 0px -" + countC + "px " + textcountB + " " + textcountA + " " + ambilightcolorhex + ", 0px " + countC + "px " + textcountB + " " + textcountA + " " + ambilightcolorhex + ", " + countC + "px 0px " + textcountB + " " + textcountA + " " + ambilightcolorhex + ", -" + countC + "px 0px " + textcountB + " " + textcountA + " " + ambilightcolorhex + ""; }

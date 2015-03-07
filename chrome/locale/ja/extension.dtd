@@ -3,10 +3,10 @@
 <!ENTITY videotitle "動画にフォーカスする">
 <!ENTITY pagetitle "このページを暗くする">
 <!ENTITY optiontitle "オプション">
-<!ENTITY sharetitle "これを共有">
-<!ENTITY welcomeguidetitle "ウェルカムガイド">
+<!ENTITY sharetitle "共有します">
+<!ENTITY welcomeguidetitle "はじめに">
 <!ENTITY tellafriend "友達に教える">
-<!ENTITY sendatweet "Tweet を送信">
+<!ENTITY sendatweet "つぶやく">
 <!ENTITY postonfacebook "Facebook に投稿">
 <!ENTITY postongoogleplus "Google + に投稿">
 <!ENTITY ratetitle "この拡張機能を評価">

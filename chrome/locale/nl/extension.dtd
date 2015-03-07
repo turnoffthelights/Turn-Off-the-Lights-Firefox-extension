@@ -1,14 +1,14 @@
 ﻿<!ENTITY label "Turn Off the Lights">
 <!ENTITY tooltiptext "Turn Off the Lights">
-<!ENTITY videotitle "Benadruk deze video">
-<!ENTITY pagetitle "Dim deze pagina">
+<!ENTITY videotitle "Deze video benadrukken">
+<!ENTITY pagetitle "Deze pagina dimmen">
 <!ENTITY optiontitle "Opties">
-<!ENTITY sharetitle "Deel dit">
-<!ENTITY welcomeguidetitle "Welkomst Gids">
-<!ENTITY tellafriend "Vertel het aan een vriend">
-<!ENTITY sendatweet "Stuur een Tweet">
-<!ENTITY postonfacebook "Plaats op Facebook">
-<!ENTITY postongoogleplus "Plaats op Google+">
-<!ENTITY ratetitle "Beoordeel deze extensie">
-<!ENTITY donatetitle "Steun de ontwikkelingen">
-<!ENTITY manageaddontitle "Beheer">
+<!ENTITY sharetitle "Dit delen">
+<!ENTITY welcomeguidetitle "Welkomsthandleiding">
+<!ENTITY tellafriend "Een vriend(in) vertellen">
+<!ENTITY sendatweet "Een Tweet verzenden">
+<!ENTITY postonfacebook "Plaatsen op Facebook">
+<!ENTITY postongoogleplus "Plaatsen op Google+">
+<!ENTITY ratetitle "Deze extensie beoordelen">
+<!ENTITY donatetitle "Ontwikkeling steunen">
+<!ENTITY manageaddontitle "Beheren">

@@ -2,7 +2,7 @@
 /*
 
 Turn Off the Lights
-The entire page will be fading to dark, so you can watch the video as if you were in the cinema.
+The entire page will be fading to dark, so you can watch the videos as if you were in the cinema.
 Copyright (C) 2015 Stefan vd
 www.stefanvd.net
 www.turnoffthelights.com
@@ -40,7 +40,7 @@ if ("undefined" == typeof(TurnOfftheLights)) {
     ns.init = function () {
 // welcome page
 var firstrun = Services.prefs.getBoolPref("extensions.TurnOfftheLights.firstrun");
-var curVersion = "3.1.0.3";
+var curVersion = "3.1.0.5";
 
 if (firstrun) {
 // Adding button by default ------------

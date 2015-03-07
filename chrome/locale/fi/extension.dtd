@@ -1,14 +1,14 @@
-﻿<!ENTITY label "Sammuta valot">
-<!ENTITY tooltiptext "Sammuta valot">
-<!ENTITY videotitle "Tarkenna tämä video">
-<!ENTITY pagetitle "Tummenna tämä sivu">
+﻿<!ENTITY label "Turn Off the Lights">
+<!ENTITY tooltiptext "Turn Off the Lights">
+<!ENTITY videotitle "Tarkenna tähän videoon">
+<!ENTITY pagetitle "Tummenna">
 <!ENTITY optiontitle "Asetukset">
 <!ENTITY sharetitle "Jaa tämä">
-<!ENTITY welcomeguidetitle "Tervetulo-opas">
+<!ENTITY welcomeguidetitle "Tervetuloa-opas">
 <!ENTITY tellafriend "Kerro kaverille">
 <!ENTITY sendatweet "Lähetä twiitti">
 <!ENTITY postonfacebook "Viesti Facebook">
-<!ENTITY postongoogleplus "Viestistä Google +">
+<!ENTITY postongoogleplus "Lähetä Google+:aan">
 <!ENTITY ratetitle "Arvostele tämä laajennus">
-<!ENTITY donatetitle "Tue kehittämistä">
+<!ENTITY donatetitle "Tue kehitystä">
 <!ENTITY manageaddontitle "Hallinnoi">

@@ -1,5 +1,5 @@
-﻿<!ENTITY label "Выключить свет">
-<!ENTITY tooltiptext "Выключить свет">
+﻿<!ENTITY label "Turn Off the Lights">
+<!ENTITY tooltiptext "Turn Off the Lights">
 <!ENTITY videotitle "Выделить это видео">
 <!ENTITY pagetitle "Затемнить эту страницу">
 <!ENTITY optiontitle "Параметры">

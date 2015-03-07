@@ -4,11 +4,11 @@
 <!ENTITY pagetitle "较深此页">
 <!ENTITY optiontitle "选项">
 <!ENTITY sharetitle "分享">
-<!ENTITY welcomeguidetitle "欢迎使用指南">
+<!ENTITY welcomeguidetitle "使用指南">
 <!ENTITY tellafriend "告诉朋友">
 <!ENTITY sendatweet "发推">
-<!ENTITY postonfacebook "在 Facebook 上发布">
-<!ENTITY postongoogleplus "在 Google+ 上发布">
-<!ENTITY ratetitle "为本扩展评分">
-<!ENTITY donatetitle "支持发展">
+<!ENTITY postonfacebook "发到 Facebook">
+<!ENTITY postongoogleplus "发到 Google+">
+<!ENTITY ratetitle "评价本扩展">
+<!ENTITY donatetitle "支持开发">
 <!ENTITY manageaddontitle "管理">

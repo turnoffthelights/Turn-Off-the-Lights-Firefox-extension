@@ -1,14 +1,14 @@
-﻿<!ENTITY label "Turn Off the Lights">
-<!ENTITY tooltiptext "Turn Off the Lights">
-<!ENTITY videotitle "Focus seda video">
-<!ENTITY pagetitle "Tumedam seda lehekülge">
-<!ENTITY optiontitle "Options">
-<!ENTITY sharetitle "Share this">
-<!ENTITY welcomeguidetitle "Welcome Guide">
-<!ENTITY tellafriend "Tell a Friend">
-<!ENTITY sendatweet "Send a Tweet">
-<!ENTITY postonfacebook "Post on Facebook">
-<!ENTITY postongoogleplus "Post on Google+">
-<!ENTITY ratetitle "Rate this extension">
-<!ENTITY donatetitle "Support Development">
-<!ENTITY manageaddontitle "Manage">
+﻿<!ENTITY label "Keera tuled välja">
+<!ENTITY tooltiptext "Keera tuled välja">
+<!ENTITY videotitle "Keskendu sellele videole">
+<!ENTITY pagetitle "Tumenda seda lehekülge">
+<!ENTITY optiontitle "Valikud">
+<!ENTITY sharetitle "Jaga seda">
+<!ENTITY welcomeguidetitle "Tervitusjuhend">
+<!ENTITY tellafriend "Soovita sõbrale">
+<!ENTITY sendatweet "Saada Twitter'isse">
+<!ENTITY postonfacebook "Postita Facebook'i">
+<!ENTITY postongoogleplus "Postita Google+'i">
+<!ENTITY ratetitle "Hinda seda laiendust">
+<!ENTITY donatetitle "Toeta arengut">
+<!ENTITY manageaddontitle "Halda">

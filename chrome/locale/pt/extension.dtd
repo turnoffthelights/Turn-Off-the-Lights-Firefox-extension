@@ -1,14 +1,14 @@
 ﻿<!ENTITY label "Turn Off the Lights">
 <!ENTITY tooltiptext "Turn Off the Lights">
-<!ENTITY videotitle "Focar-se no vídeo">
+<!ENTITY videotitle "Focar neste vídeo">
 <!ENTITY pagetitle "Escurecer esta página">
 <!ENTITY optiontitle "Opções">
 <!ENTITY sharetitle "Partilhar isto">
-<!ENTITY welcomeguidetitle "Guia de Boas-vindas">
-<!ENTITY tellafriend "Indique a Um Amigo">
-<!ENTITY sendatweet "Envie um Tweet">
-<!ENTITY postonfacebook "Post no Facebook">
-<!ENTITY postongoogleplus "Post no Google +">
+<!ENTITY welcomeguidetitle "Guia de boas-vindas">
+<!ENTITY tellafriend "Recomendar a um amigo">
+<!ENTITY sendatweet "Enviar um tweet">
+<!ENTITY postonfacebook "Publicar no Facebook">
+<!ENTITY postongoogleplus "Publicar no Google +">
 <!ENTITY ratetitle "Classifique esta extensão">
-<!ENTITY donatetitle "Apoiar o Desenvolvimento">
+<!ENTITY donatetitle "Apoiar o desenvolvimento">
 <!ENTITY manageaddontitle "Gerir">
