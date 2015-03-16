@@ -49,6 +49,7 @@ section>h3{font-size:105%;font-weight:700;margin:0;vertical-align:middle;width:1
 section>div:only-of-type{-moz-box-flex:1}
 section>div:only-of-type label{margin:5px 0}
 label.checkbox,label.radio{display:block}
+label.checkboxline,label.radioline{display:inline-block}
 #customHomePageGroup{display:-moz-box;-moz-box-orient:horizontal;width:100%}
 #customHomePageGroup>:last-child{-moz-margin-start:1ex;-moz-box-flex:1;position:relative}
 #lightimage{box-sizing:border-box;padding-top:3px;padding-right:70px;width:100%}
