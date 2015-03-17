@@ -427,7 +427,7 @@ else {
 }
 
 if(autoplayonly == true){
-var currenturl = location.protocol + '//' + location.host;
+var currenturl = window.content.location.protocol; + '//' + window.content.location.host;
 var blackrabbit = false;
 if(typeof autoplayDomains == "string") {
 	autoplayDomains = JSON.parse(autoplayDomains);
@@ -477,7 +477,7 @@ function autostopfunction(){
 }
 
 if(autostoponly == true){
-var currenturl = location.protocol + '//' + location.host;
+var currenturl = window.content.location.protocol + '//' + window.content.location.host;
 var stoprabbit = false;
 if(typeof autostopDomains == "string") {
 	autostopDomains = JSON.parse(autostopDomains);
@@ -519,7 +519,7 @@ if((ecosaver == true) && (eyen == true)){firefox.extension.sendRequest({name: "a
 
 if(eyea == true){firefox.extension.sendRequest({name: "automatic"});}
 else if(eyealist == true){
-var currenturl = location.protocol + '//' + location.host;
+var currenturl = window.content.location.protocol + '//' + window.content.location.host;
 var eyerabbit = false;
 if(typeof excludedDomains == "string") {
 	excludedDomains = JSON.parse(excludedDomains);
@@ -940,7 +940,7 @@ try{
 }
 
 if(atmosphereonly == true){
-var currenturl = location.protocol + '//' + location.host;
+var currenturl = window.content.location.protocol + '//' + window.content.location.host;
 if(typeof atmosphereDomains == "string") {
 	atmosphereDomains = JSON.parse(atmosphereDomains);
 	var albuf = [];
@@ -1291,7 +1291,7 @@ function timergonighttricker(){
 }
 
 if(nightonly == true){
-	var currenturl = location.protocol + '//' + location.host;
+	var currenturl = window.content.location.protocol + '//' + window.content.location.host;
 	var nightrabbit = false;
 	if(typeof nightDomains == "string") {
 		nightDomains = JSON.parse(nightDomains);

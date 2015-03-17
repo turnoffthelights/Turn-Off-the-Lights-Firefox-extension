@@ -251,9 +251,9 @@ function save_options(){
 	prefManager.setCharPref("extensions.TurnOfftheLights.nmendtime", $('nmendtime').value);
 	if($('lampandnightmode').checked)prefManager.setBoolPref("extensions.TurnOfftheLights.lampandnightmode", true);
 	else prefManager.setBoolPref("extensions.TurnOfftheLights.lampandnightmode", false);
-	if($('eyechecklistwhite').checked)prefManager.setBoolPref("extensions.TurnOfftheLights.eyechecklistwhite", false);
+	if($('eyechecklistwhite').checked)prefManager.setBoolPref("extensions.TurnOfftheLights.eyechecklistwhite", true);
 	else prefManager.setBoolPref("extensions.TurnOfftheLights.eyechecklistwhite", false);
-	if($('eyechecklistblack').checked)prefManager.setBoolPref("extensions.TurnOfftheLights.eyechecklistblack", false);
+	if($('eyechecklistblack').checked)prefManager.setBoolPref("extensions.TurnOfftheLights.eyechecklistblack", true);
 	else prefManager.setBoolPref("extensions.TurnOfftheLights.eyechecklistblack", false);
 	
 // Excluded domains

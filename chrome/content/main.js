@@ -40,7 +40,7 @@ if ("undefined" == typeof(TurnOfftheLights)) {
     ns.init = function () {
 // welcome page
 var firstrun = Services.prefs.getBoolPref("extensions.TurnOfftheLights.firstrun");
-var curVersion = "3.1.0.7";
+var curVersion = "3.1.0.8";
 
 if (firstrun) {
 // Adding button by default ------------
