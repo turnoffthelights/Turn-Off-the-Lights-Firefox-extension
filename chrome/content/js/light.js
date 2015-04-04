@@ -136,6 +136,43 @@ sharebutton = response.sharebutton;
 viewcount = response.viewcount;
 addvideobutton = response.addvideobutton;
 likebar = response.likebar;
+flash = response.flash;
+noflash = response.noflash;
+hardflash = response.hardflash;
+
+// Show all Flash objects -> Flash detection
+function flashobjects(){
+try{
+var d=window.document,j,i,t,T,N,b,r=1,C;
+for(j=0;t=['object','embed','applet','iframe'][j];++j)
+{
+T=d.getElementsByTagName(t);
+for(i=T.length-1;(i+1)&&(N=T[i]);--i)
+if(j!=3||!R((C=N.contentWindow)?C:N.contentDocument.defaultView))
+{
+N.style.cssText = 'visibility:visible !important; position:relative !important; z-index:1000 !important';
+}
+}
+}catch(E){r = 0}
+return r
+}
+
+if(flash == true){
+intelligentvideodetection();
+
+flashobjects();
+} else if(hardflash == true){
+intelligentvideodetection();
+
+for(j=0;t=['object','embed','applet','iframe'][j];++j)
+{
+var a = document.querySelectorAll(t);
+for(var i = 0; i < a.length; i++ )
+{
+a[i].style.cssText = 'visibility:visible !important; position:relative !important; z-index:1000 !important';
+}
+}
+}
 
 // detect if not higher then z-index 1000, then make it push down
 // search for the z-index, if found something give it 'auto'
@@ -230,6 +267,11 @@ try {
 
 // YouTube options
 if (window.location.href.match(/((http:\/\/(.*youtube\.com\/.*))|(https:\/\/(.*youtube\.com\/.*)))/i)){
+// Show the debug mode of YouTube
+var youtubedebuginfopanel = document.querySelectorAll('div.html5-video-info-panel');
+for(var i = 0; i < youtubedebuginfopanel.length; i++ ){youtubedebuginfopanel[i].style.zIndex = "1001";}
+var youtubedebugpanel = document.querySelectorAll('div.ytp-dialog-holder');
+for(var i = 0; i < youtubedebugpanel.length; i++ ){youtubedebugpanel[i].style.zIndex = "1001";}
 
 // YouTube video OK
 var watch7 = $('watch7');
@@ -907,9 +949,6 @@ dynamic2 = response.dynamic2;
 dynamic3 = response.dynamic3;
 dynamic4 = response.dynamic4;
 dynamic5 = response.dynamic5;
-flash = response.flash;
-noflash = response.noflash;
-hardflash = response.hardflash;
 hoveroptiondyn5 = response.hoveroptiondyn5;
 blur = response.blur;
 cinemaontop = response.cinemaontop;
@@ -922,39 +961,7 @@ intervallina = response.intervallina;
 colorb = response.colorb;
 intervallinb = response.intervallinb;
 
-// Show all Flash objects -> Flash detection
-function flashobjects(){
-try{
-var d=window.document,j,i,t,T,N,b,r=1,C;
-for(j=0;t=['object','embed','applet','iframe'][j];++j)
-{
-T=d.getElementsByTagName(t);
-for(i=T.length-1;(i+1)&&(N=T[i]);--i)
-if(j!=3||!R((C=N.contentWindow)?C:N.contentDocument.defaultView))
-{
-N.style.cssText = 'visibility:visible !important; position:relative !important; z-index:1000 !important';
-}
-}
-}catch(E){r = 0}
-return r
-}
 
-if(flash == true){
-intelligentvideodetection();
-
-flashobjects();
-} else if(hardflash == true){
-intelligentvideodetection();
-
-for(j=0;t=['object','embed','applet','iframe'][j];++j)
-{
-var a = document.querySelectorAll(t);
-for(var i = 0; i < a.length; i++ )
-{
-a[i].style.cssText = 'visibility:visible !important; position:relative !important; z-index:1000 !important';
-}
-}
-}
 
 // Password in document
 // taart make it remove or not
