@@ -424,13 +424,10 @@ var appbarguideiframemask = $('appbar-guide-iframe-mask');
 if(appbarguideiframemask){$('appbar-guide-iframe-mask').style.zIndex = '-1';}
 
 // short and cleaner engine 2014
-var data = [['movie_player',1000],['movie_player-html5',1000],['watch-player',1000],['player-api',1001],['html5-player',1001],['video-player',1001],['user_fullwidth_gadget',1001]];
+var data = [['movie_player',1000],['movie_player-html5',1000],['watch-player',1000],['html5-player',1001],['video-player',1001],['user_fullwidth_gadget',1001]];
 for (var conf in data) {
         var temp = document.getElementById(data[conf][0]);
         if (temp) {
-                if (conf[0] == 'player-api') {
-                        temp.style.overflow = 'visible';
-                }
                 temp.style.zIndex = data[conf][1];
                 temp.style.visibility = 'visible';
                 temp.style.position = 'relative';
@@ -443,6 +440,23 @@ for (var div in divs) {
         if (c == 'video-controls' || c == 'html5-video-controls' || c == 'html5-video-controls ytp-block-autohide' || c == 'html5-video-controls disabled-control-seek') {
                 divs[div].style.zIndex = 1001;
                 divs[div].style.visibility = 'visible';
+        }
+}
+
+// YouTube new player 27/04/2015
+var ytdivs = document.getElementsByTagName('div');
+for (var div in ytdivs) {
+        var d = ytdivs[div].className;
+        if (d == 'ytp-upnext ytp-endscreen-upnext-autoplay-paused ytp-suggestion-set' || d == 'ytp-remote' || d == 'ytp-thumbnail-overlay ytp-cued-thumbnail-overlay' || d == 'ytp-spinner' || d == 'ytp-bezel' || d == 'ytp-gradient-top' || d == 'ytp-chrome-top' || d == 'ytp-gradient-bottom' || d == 'ytp-chrome-bottom' || d == 'ytp-panelpopup ytp-settings-menu' || d == 'ytp-button ytp-cards-button' || d == 'ytp-share-panel' || d == 'ytp-playlist-menu' || d == 'ytp-related-menu' || d == 'ytp-webgl-spherical-control' || d == 'ytp-storyboard enabled' || d == 'ytp-storyboard-framepreview' || d == 'ytp-ad-progress-bar-container') {
+                ytdivs[div].style.zIndex = 1001;
+        }
+}
+// YouTube new player 27/04/2015 debug
+var ytdivsdebug = document.getElementsByTagName('div');
+for (var div in ytdivsdebug) {
+        var e = ytdivsdebug[div].className;
+        if (e == 'ytp-panelpopup ytp-contextmenu') {
+                ytdivsdebug[div].style.zIndex = 1002;
         }
 }
 
@@ -468,6 +482,7 @@ for(var i = 0; i < admediaanno.length; i++ )
 var ytpprogress = document.getElementsByTagName('div');
 for(var i = 0; i < ytpprogress.length; i++ )
 {if(ytpprogress[i].className == ('ytp-progress-bar-container')) {ytpprogress[i].style.zIndex = 1005;}}
+
 
 } // end YouTube
 
@@ -560,6 +575,7 @@ if((insideframe.substring(0, 17) == '//www.youtube.com') || (insideframe.substri
 || (insideframe.substring(0, 27) == 'http://www.collegehumor.com') || (insideframe.substring(0, 28) == 'https://www.collegehumor.com') || (insideframe.substring(0, 38) == 'http://0.static.collegehumor.cvcdn.com') || (insideframe.substring(0, 39) == 'https://0.static.collegehumor.cvcdn.com')
 || (insideframe.substring(0, 24) == 'http://hub.video.msn.com') || (insideframe.substring(0, 25) == 'https://hub.video.msn.com') || (insideframe.substring(0, 34) == 'http://img.widgets.video.s-msn.com') || (insideframe.substring(0, 35) == 'https://img.widgets.video.s-msn.com') // msn bing.com
 || (insideframe.substring(0, 30) == 'http://flash.pcworld.com/video') || (insideframe.substring(0, 31) == 'https://flash.pcworld.com/video')
+|| (insideframe.substring(0, 39) == 'https://safe.txmblr.com/svc/embed/iframe') || (insideframe.substring(0, 40) == 'https://safe.txmblr.com/svc/embed/iframe')
 || (insideframe.substring(0, 23) == 'http://z.cdn.turner.com') || (insideframe.substring(0, 24) == 'https://z.cdn.turner.com')
 || (insideframe.substring(0, 24) == 'http://player.ku6cdn.com') || (insideframe.substring(0, 25) == 'https://player.ku6cdn.com')
 || (insideframe.substring(0, 21) == 'http://js.tudouui.com') || (insideframe.substring(0, 22) == 'https://js.tudouui.com')
@@ -639,6 +655,7 @@ if((insideframe.substring(0, 17) == '//www.youtube.com') || (insideframe.substri
 || (insideframe.substring(0, 27) == 'http://www.collegehumor.com') || (insideframe.substring(0, 28) == 'https://www.collegehumor.com') || (insideframe.substring(0, 38) == 'http://0.static.collegehumor.cvcdn.com') || (insideframe.substring(0, 39) == 'https://0.static.collegehumor.cvcdn.com')
 || (insideframe.substring(0, 24) == 'http://hub.video.msn.com') || (insideframe.substring(0, 25) == 'https://hub.video.msn.com') || (insideframe.substring(0, 34) == 'http://img.widgets.video.s-msn.com') || (insideframe.substring(0, 35) == 'https://img.widgets.video.s-msn.com') // msn bing.com
 || (insideframe.substring(0, 30) == 'http://flash.pcworld.com/video') || (insideframe.substring(0, 31) == 'https://flash.pcworld.com/video')
+|| (insideframe.substring(0, 39) == 'https://safe.txmblr.com/svc/embed/iframe') || (insideframe.substring(0, 40) == 'https://safe.txmblr.com/svc/embed/iframe')
 || (insideframe.substring(0, 23) == 'http://z.cdn.turner.com') || (insideframe.substring(0, 24) == 'https://z.cdn.turner.com')
 || (insideframe.substring(0, 24) == 'http://player.ku6cdn.com') || (insideframe.substring(0, 25) == 'https://player.ku6cdn.com')
 || (insideframe.substring(0, 21) == 'http://js.tudouui.com') || (insideframe.substring(0, 22) == 'https://js.tudouui.com')
@@ -715,6 +732,7 @@ if((insideframe.substring(0, 17) == '//www.youtube.com') || (insideframe.substri
 || (insideframe.substring(0, 27) == 'http://www.collegehumor.com') || (insideframe.substring(0, 28) == 'https://www.collegehumor.com') || (insideframe.substring(0, 38) == 'http://0.static.collegehumor.cvcdn.com') || (insideframe.substring(0, 39) == 'https://0.static.collegehumor.cvcdn.com')
 || (insideframe.substring(0, 24) == 'http://hub.video.msn.com') || (insideframe.substring(0, 25) == 'https://hub.video.msn.com') || (insideframe.substring(0, 34) == 'http://img.widgets.video.s-msn.com') || (insideframe.substring(0, 35) == 'https://img.widgets.video.s-msn.com') // msn bing.com
 || (insideframe.substring(0, 30) == 'http://flash.pcworld.com/video') || (insideframe.substring(0, 31) == 'https://flash.pcworld.com/video')
+|| (insideframe.substring(0, 39) == 'https://safe.txmblr.com/svc/embed/iframe') || (insideframe.substring(0, 40) == 'https://safe.txmblr.com/svc/embed/iframe')
 || (insideframe.substring(0, 23) == 'http://z.cdn.turner.com') || (insideframe.substring(0, 24) == 'https://z.cdn.turner.com')
 || (insideframe.substring(0, 24) == 'http://player.ku6cdn.com') || (insideframe.substring(0, 25) == 'https://player.ku6cdn.com')
 || (insideframe.substring(0, 21) == 'http://js.tudouui.com') || (insideframe.substring(0, 22) == 'https://js.tudouui.com')
@@ -811,6 +829,13 @@ for(var i = 0; i < div.length; i++ )
 else if (window.location.href.match(/http:\/\/(.*\.1tv\.ru\/.*)/i)){
 var flashvideoportal1 = $('flashvideoportal_1');
 if(flashvideoportal1){$('flashvideoportal_1').style.zIndex = 1001;$('flashvideoportal_1').style.position = 'relative';}
+}
+
+// steampowered.com, fixed show control
+else if (window.location.href.match(/((http:\/\/.*steampowered\.com\/.*)|(https:\/\/.*steampowered\.com\/.*))/i)){
+div = document.getElementsByTagName('div'); 
+for(var i = 0; i < div.length; i++ ) 
+{if(div[i].className == ('html5_video_overlay')) {div[i].style.zIndex = 1000;}}
 }
 
 //Flash games

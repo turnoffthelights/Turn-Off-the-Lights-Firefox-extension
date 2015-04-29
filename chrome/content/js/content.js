@@ -614,9 +614,6 @@ function ambilightfunction(){
 		/* temp fix watch7-video */
 		var watch7video = $('watch7-video');
 		if(watch7video)$('watch7-video').style.zIndex = 'auto';
-		
-		var playerapi = $('player-api');
-		if(playerapi){$('player-api').style.overflow = 'visible';$('player-api').style.zIndex = 1001;$('player-api').style.visibility = 'visible';$('player-api').style.position = 'relative';}
 
 		div = document.getElementsByTagName('div'); 
 		for(var i = 0; i < div.length; i++ )
@@ -1011,7 +1008,7 @@ function gogonightmode(){
 			if($("fbar")){$("fbar").style.background = "black";} //#f2f2f2
 			}
 			else if (window.location.href.match(/((http:\/\/(.*youtube\.com\/.*))|(https:\/\/(.*youtube\.com\/.*)))/i)){
-			if($("logo-container")){$("logo-container").style.cssText = "filter: grayscale(100%) brightness(100%) contrast(100%);";}
+			if($("logo-container")){$("logo-container").style.cssText = "-webkit-filter: grayscale(100%) brightness(100%) contrast(100%);";}
 			if($("watch7-action-buttons")){$("watch7-action-buttons").style.cssText = "-webkit-filter: grayscale(0%) brightness(100%) contrast(0%);";}
 			if($("watch7-content")){$("watch7-content").style.background = "black";} //#fff
 			if($("yt-masthead-container")){$("yt-masthead-container").style.background = "black";} //#f1f1f1
@@ -1074,7 +1071,10 @@ function gogonightmode(){
 			for(var i = 0; i < ytdivallcomments.length; i++ ){ytdivallcomments[i].style.background = "black";}
 			var ytbtnuixdiv = document.querySelectorAll('button.yt-uix-button');
 			for(var i = 0; i < ytbtnuixdiv.length; i++ ){ytbtnuixdiv[i].style.background = "#333333";ytbtnuixdiv[i].style.color = "#fff";}
-
+			// update 16 april 2015
+			var ytdivcomments = document.querySelectorAll('div.comments');
+			for(var i = 0; i < ytdivcomments.length; i++ ){ytdivcomments[i].style.color = "#999";}
+			
 			firefox.extension.sendRequest({name: 'adddarkyoutube'});
 		}
 //-----
@@ -1169,7 +1169,10 @@ function gogonightmode(){
 			for(var i = 0; i < ytdivallcomments.length; i++ ){ytdivallcomments[i].style.background = "white";}
 			var ytbtnuixdiv = document.querySelectorAll('button.yt-uix-button');
 			for(var i = 0; i < ytbtnuixdiv.length; i++ ){ytbtnuixdiv[i].style.background = "white";ytbtnuixdiv[i].style.color = "#777";}
-
+			// update 16 april 2015
+			var ytdivcomments = document.querySelectorAll('div.comments');
+			for(var i = 0; i < ytdivcomments.length; i++ ){ytdivcomments[i].style.color = "black";}
+			
 			firefox.extension.sendRequest({name: 'addnormalyoutube'});
 		}
 	}
