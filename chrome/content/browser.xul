@@ -4,6 +4,7 @@
 <?xml-stylesheet href="chrome://TurnOfftheLights/content/css/toolbar-button.css" type="text/css"?>
 <overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" id="totl-overlay">
 	<script type="application/x-javascript" src="main.js"></script>
+
 	<toolbarpalette id="BrowserToolbarPalette">
 		<toolbarbutton oncommand="TurnOfftheLights.onToolbarButtonClick(event);"
 		onclick="TurnOfftheLights.onToolbarButtonClick(event);"

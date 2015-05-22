@@ -41,13 +41,13 @@ if ("undefined" == typeof(TurnOfftheLights)) {
 // welcome page
 var firstrun = Services.prefs.getBoolPref("extensions.TurnOfftheLights.firstrun");
 // Firefox 4 and later; Mozilla 2 and later
-var curVersion;
+var curVersion = "3.1";
 try {
 	Components.utils.import("resource://gre/modules/AddonManager.jsm");
 	AddonManager.getAddonByID("stefanvandamme@stefanvd.net", function(addon) {
 	curVersion = addon.version;
 })
-} catch (ex) {} // silently fail
+} catch (ex) {curVersion = "3.1";} // silently fail
 
 if (firstrun) {
 // Adding button by default ------------
@@ -105,6 +105,10 @@ if (firstrun) {
     }
 
 	function pageLoaded(aEvent) {
+		gBrowser.removeEventListener('DOMContentLoaded', pageLoaded, false); // remove listener, no longer needed
+	
+	
+
 		// if ((aEvent.originalTarget.nodeName == '#document') && (aEvent.originalTarget.defaultView.location.href == gBrowser.currentURI.spec)){
 		// var doc = aEvent.originalTarget; // loaded document
 		var doc = aEvent.target;
@@ -283,6 +287,7 @@ function actionmenu() {
 					firefox.tabs.executeScript(tab, {file: "chrome://TurnOfftheLights/content/js/youtubewhite.js"});
 				}
 			}
+			else if ( request.name == "slideeffect" ) { Services.prefs.setCharPref("extensions.TurnOfftheLights.slideeffect", request.value); }
 			else if ( request.name == "nmcustomx" ) { Services.prefs.setCharPref("extensions.TurnOfftheLights.nmcustomx", request.value); }
 			else if ( request.name == "nmcustomy" ) { Services.prefs.setCharPref("extensions.TurnOfftheLights.nmcustomy", request.value); }
 			else if (request.name == "mastertabdark") {

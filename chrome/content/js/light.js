@@ -143,18 +143,23 @@ hardflash = response.hardflash;
 // Show all Flash objects -> Flash detection
 function flashobjects(){
 try{
-var d=window.document,j,i,t,T,N,b,r=1,C;
+var t,newname;
 for(j=0;t=['object','embed','applet','iframe'][j];++j)
 {
-T=d.getElementsByTagName(t);
-for(i=T.length-1;(i+1)&&(N=T[i]);--i)
-if(j!=3||!R((C=N.contentWindow)?C:N.contentDocument.defaultView))
-{
-N.style.cssText = 'visibility:visible !important; position:relative !important; z-index:1000 !important';
+	var a = document.querySelectorAll(t);
+	for(var i = 0; i < a.length; i++ )
+	{
+		if(a[i].nodeName === "IFRAME"){
+			if((a[i].contentWindow.window.location.host || a[i].contentDocument.window.location.host) == window.content.location.host){
+			a[i].style.cssText = 'visibility:visible !important; position:relative !important; z-index:1000 !important';
+			}
+		}
+		else{
+			a[i].style.cssText = 'visibility:visible !important; position:relative !important; z-index:1000 !important';
+		}
+	}
 }
-}
-}catch(E){r = 0}
-return r
+}catch(error){}
 }
 
 if(flash == true){

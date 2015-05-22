@@ -28,7 +28,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 //================================================
 
 document.addEventListener('DOMContentLoaded', function() { cameramotionlights(); },false);
-chrome.storage.onChanged.addListener(function() { cameramotionlights(); });
+// chrome.storage.onChanged.addListener(function() { cameramotionlights(); });
 
 var cammotionDomains = null;
 
@@ -52,12 +52,16 @@ window.URL = window.URL || window.webkitURL;
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
 function cameramotionlights(){
-chrome.storage.local.get(['motion', 'cammotiononly', 'cammotionDomains'], function(response){
-var motion = response['motion'];
-var cammotiononly = response['cammotiononly'];
+// firefox.extension.sendRequest({name: "totlrequest"}, function(response) {
+// var motion = response.motion;
+// var cammotiononly = response.cammotiononly;
+// var cammotionDomains = response.cammotionDomains;
+var motion = "true";
+var cammotiononly = "false";
+var cammotionDomains = "";
 
 if(motion == "true"){
-chrome.runtime.onSuspend.addListener(function() { location.reload(); });
+// onSuspend location.reload();
 }
 
 function onlycammotionfunction(tab){
@@ -66,7 +70,6 @@ function onlycammotionfunction(tab){
         currenturl = currenturl.substr(0, currenturl.length - 1);
     }
 
-	cammotionDomains  = response['cammotionDomains']; // get latest setting
 	if(typeof cammotionDomains == "string") {
 		cammotionDomains = JSON.parse(cammotionDomains);
 		var cmbuf = [];
@@ -131,7 +134,7 @@ if(motion == "true"){
 	}
 	
 }
-});
+// });
 }
 
 function cammotionstartfunction(){
@@ -175,7 +178,7 @@ width = height = 0;
                     canvas.height = ccanvas.height = height;
                 }
                 if (width != 0) {
-                    canvasgetcont.drawImage(video, width, 0, -width, height);
+                    canvasgetcont.drawImage(video, 0, 0, width, height);
                     draw = canvasgetcont.getImageData(0, 0, width, height);
                     //ccgetcont.putImageData(draw,0,0);
                     skinfilter();
@@ -338,14 +341,24 @@ huemin = 0.0; huemax = 0.10; satmin = 0.0; satmax = 1.0; valmin = 0.4; valmax = 
                         if (davg > overthresh) {
                             // console.log('over up');
 							// to enable the fall down effect
-							chrome.storage.local.set({"slideeffect": "true"});
-							chrome.tabs.getSelected(null, function(tab) {if (tab.url.match(/^http/i)){chrome.tabs.executeScript(tab.id, {file: "js/light.js"});}});	
+							// firefox.extension.sendRequest({name: 'slideeffect', value : "true"});
+							// firefox.extension.sendRequest({name: "automatic"});
+							
+							
+							var tab = documentToTab(gBrowser.contentDocument);
+							firefox.tabs.executeScript(sender.tab, {file: "chrome://TurnOfftheLights/content/js/light.js"});
                         }
                         else{
 							// console.log('up');
 							// to enable the fall down effect
-							chrome.storage.local.set({"slideeffect": "true"});
-							chrome.tabs.getSelected(null, function(tab) {if (tab.url.match(/^http/i)){chrome.tabs.executeScript(tab.id, {file: "js/light.js"});}});	
+							// firefox.extension.sendRequest({name: 'slideeffect', value : "true"});
+							// firefox.extension.sendRequest({name: "automatic"});
+							
+							
+							var tab = documentToTab(gBrowser.contentDocument);
+							firefox.tabs.executeScript(sender.tab, {file: "chrome://TurnOfftheLights/content/js/light.js"});
+				
+				
                         }
                         }
                     else if (dy < -movethresh && !dirx) {

@@ -169,7 +169,7 @@ shortcutlight = response.shortcutlight;
 			// create div on top page, and say this is OFF
 				var neweyediv = document.createElement('div');
 				neweyediv.setAttribute('id','stefanvdlightseye');
-				neweyediv.innerHTML = "" + i18ntiteleye + " " + i18neyedivoff + "";
+				neweyediv.textContent = i18ntiteleye + " " + i18neyedivoff;
 				document.body.appendChild(neweyediv);
 				firefox.extension.sendRequest({name: 'eyesavemeOFF', value : eyeoptionvalue});
 			}
@@ -179,7 +179,7 @@ shortcutlight = response.shortcutlight;
 			// create div on top page, and say this is ON
 				var neweyediv = document.createElement('div');
 				neweyediv.setAttribute('id','stefanvdlightseye');
-				neweyediv.innerHTML = "" + i18ntiteleye + " " + i18neyedivon + "";
+				neweyediv.textContent = i18ntiteleye + " " + i18neyedivon;
 				document.body.appendChild(neweyediv);
 				firefox.extension.sendRequest({name: 'eyesavemeON', value : eyeoptionvalue});
 			}

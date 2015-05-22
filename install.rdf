@@ -5,7 +5,7 @@
 
   <Description about="urn:mozilla:install-manifest">
     <em:id>stefanvandamme@stefanvd.net</em:id>
-    <em:version>3.1.0.22</em:version>
+    <em:version>3.1.0.27</em:version>
 	<em:iconURL>chrome://TurnOfftheLights/content/icons/icon48.png</em:iconURL>
 	<em:icon64URL>chrome://TurnOfftheLights/content/icons/icon64.png</em:icon64URL>
 	<em:optionsURL>chrome://TurnOfftheLights/content/redirect.xul</em:optionsURL>

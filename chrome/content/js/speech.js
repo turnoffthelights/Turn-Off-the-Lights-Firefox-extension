@@ -154,6 +154,8 @@ function startButton(event) {
 }
 
 function speechrecognition(){
+document.removeEventListener('DOMContentLoaded', speechrecognition, false); // remove listener, no longer needed
+ 
 chrome.storage.local.get(['speech', 'speechonly', 'speechDomains'], function(response){
 speech = response['speech'];
 speechonly  = response['speechonly'];

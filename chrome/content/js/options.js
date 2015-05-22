@@ -1319,8 +1319,8 @@ else{$('nmbegintime').disabled = true;$('nmendtime').disabled = true;$('nmconfir
 if(nighttheme.checked == true){$('lampandnightmode').disabled = false;}
 else{$('lampandnightmode').disabled = true;}
 
-if(autostoponly.checked == true){$('autostopchecklistwhite').disabled = false;$('autostopchecklistblack').disabled = false;}
-else{$('autostopchecklistwhite').disabled = true;$('autostopchecklistblack').disabled = true;}
+if(autostoponly.checked == true){$('autostopDomainsBox').disabled = false;$('autostopremovebutton').disabled = false;$('autostopaddbutton').disabled = false;$('autostopwebsiteurl').disabled = false;$('autostopchecklistwhite').disabled = false;$('autostopchecklistblack').disabled = false;}
+else{$('autostopDomainsBox').disabled = true;$('autostopremovebutton').disabled = true;$('autostopaddbutton').disabled = true;$('autostopwebsiteurl').disabled = true;$('autostopchecklistwhite').disabled = true;$('autostopchecklistblack').disabled = true;}
 }
 
 function dynamictest(){
@@ -1509,7 +1509,7 @@ width = height = 0;
                     canvas.height = ccanvas.height = height;
                 }
                 if (width != 0) {
-                    canvasgetcont.drawImage(video, width, 0, -width, height);
+                    canvasgetcont.drawImage(video, 0, 0, width, height);
                     draw = canvasgetcont.getImageData(0, 0, width, height);
                     //ccgetcont.putImageData(draw,0,0);
                     skinfilter();
@@ -1735,7 +1735,7 @@ navigator.getUserMedia({audio:false,video:true},function(stream){
 
 } else {
 	// remove everything
-	document.getElementById('stefanmotion').innerHTML = "";
+	document.getElementById('stefanmotion').textContent = "";
 
 	if(localMediaStream){
 		if($("motionvideo")){
@@ -1917,7 +1917,9 @@ $("dont-turn-off-the-lights").src = "http://www.youtube.com/embed/?listType=play
 $('loading').style.display = "none";
 });
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function myfunction() {
+document.removeEventListener('DOMContentLoaded', myfunction, false); // remove listener, no longer needed
+ 
 // browser check
 var nAgt = navigator.userAgent;
 var browserName;
@@ -1929,34 +1931,6 @@ else if (urlbrowservendor.search("Google") >= 0) {browserName = "Google Chrome";
 else if (navigator.appCodeName == "Mozilla") {browserName = "Firefox";}
 else if ((nAgt.indexOf("Maxthon/"))!=-1) {browserName = "Maxthon";}
 
-if (browserName == "Opera") {
-// Opera
-var stefanvdurl = "https://addons.opera.com/extensions/details/turn-off-the-lights/";
-var reviewstefanvdurl = "https://addons.opera.com/extensions/details/turn-off-the-lights/?#feedback-container";
-var linkfndownload = "https://addons.opera.com/extensions/details/finance-toolbar/";
-var linkppdownload = "https://addons.opera.com/extensions/details/proper-menubar/";
-var linkzodownload = "https://addons.opera.com/extensions/details/zoom/";
-var linkaadownload = "https://addons.opera.com/extensions/details/ambient-aurea/";
-var linkthemedownload = "https://addons.opera.com/themes/details/turn-off-the-lights-theme/";
-} else if (browserName == "Google Chrome") {
-// Google Chrome
-var stefanvdurl = "https://chrome.google.com/webstore/detail/bfbmjmiodbnnpllbbbfblcplfjjepjdn";
-var reviewstefanvdurl = "https://chrome.google.com/webstore/detail/turn-off-the-lights/bfbmjmiodbnnpllbbbfblcplfjjepjdn/reviews";
-var linkfndownload = "https://chrome.google.com/webstore/detail/finance-toolbar/cichbngoomgnobmmjpagmbkimbamigie";
-var linkppdownload = "https://chrome.google.com/webstore/detail/proper-menubar/egclcjdpndeoioimlbbbmdhcaopnedkp";
-var linkzodownload = "https://chrome.google.com/webstore/detail/zoom/lajondecmobodlejlcjllhojikagldgd";
-var linkaadownload = "https://chrome.google.com/webstore/detail/pkaglmndhfgdaiaccjglghcbnfinfffa";
-var linkthemedownload = "https://chrome.google.com/webstore/detail/fpddgembdeaikopmbfiokjolihbamcca";
-} else if (browserName == "Safari") {
-// Safari
-var stefanvdurl = "https://chrome.google.com/webstore/detail/bfbmjmiodbnnpllbbbfblcplfjjepjdn";
-var reviewstefanvdurl = "https://chrome.google.com/webstore/detail/turn-off-the-lights/bfbmjmiodbnnpllbbbfblcplfjjepjdn/reviews";
-var linkfndownload = "https://chrome.google.com/webstore/detail/finance-toolbar/cichbngoomgnobmmjpagmbkimbamigie";
-var linkppdownload = "https://chrome.google.com/webstore/detail/proper-menubar/egclcjdpndeoioimlbbbmdhcaopnedkp";
-var linkzodownload = "https://chrome.google.com/webstore/detail/zoom/lajondecmobodlejlcjllhojikagldgd";
-var linkaadownload = "https://chrome.google.com/webstore/detail/pkaglmndhfgdaiaccjglghcbnfinfffa";
-var linkthemedownload = "https://chrome.google.com/webstore/detail/fpddgembdeaikopmbfiokjolihbamcca";
-} else if (browserName == "Firefox") {
 // Firefox browser
 var stefanvdurl = "https://addons.mozilla.org/firefox/addon/turn-off-the-lights/";
 var reviewstefanvdurl = "https://addons.mozilla.org/firefox/addon/turn-off-the-lights/reviews/";
@@ -1965,34 +1939,6 @@ var linkppdownload = "https://addons.mozilla.org/firefox/addon/proper-menubar/";
 var linkzodownload = "https://addons.mozilla.org/firefox/addon/zoom/";
 var linkaadownload = "https://addons.mozilla.org/firefox/addon/ambient-aurea/";
 var linkthemedownload = "https://addons.mozilla.org/firefox/addon/turn-off-the-lights-theme/";
-} else if (browserName == "Maxthon") {
-// Maxthon browser
-var stefanvdurl = "http://extension.maxthon.com/detail/index.php?view_id=1813";
-var reviewstefanvdurl = "http://extension.maxthon.com/detail/index.php?view_id=1813";
-var linkfndownload = "https://chrome.google.com/webstore/detail/finance-toolbar/cichbngoomgnobmmjpagmbkimbamigie";
-var linkppdownload = "https://chrome.google.com/webstore/detail/proper-menubar/egclcjdpndeoioimlbbbmdhcaopnedkp";
-var linkzodownload = "https://chrome.google.com/webstore/detail/zoom/lajondecmobodlejlcjllhojikagldgd";
-var linkaadownload = "https://chrome.google.com/webstore/detail/pkaglmndhfgdaiaccjglghcbnfinfffa";
-var linkthemedownload = "http://skin.maxthon.com/detail/index.php?view_id=2015";
-} else if (browserName == "Yandex") {
-// Yandex browser
-var stefanvdurl = "https://chrome.google.com/webstore/detail/bfbmjmiodbnnpllbbbfblcplfjjepjdn";
-var reviewstefanvdurl = "https://chrome.google.com/webstore/detail/turn-off-the-lights/bfbmjmiodbnnpllbbbfblcplfjjepjdn/reviews";
-var linkfndownload = "https://chrome.google.com/webstore/detail/finance-toolbar/cichbngoomgnobmmjpagmbkimbamigie";
-var linkppdownload = "https://chrome.google.com/webstore/detail/proper-menubar/egclcjdpndeoioimlbbbmdhcaopnedkp";
-var linkzodownload = "https://chrome.google.com/webstore/detail/zoom/lajondecmobodlejlcjllhojikagldgd";
-var linkaadownload = "https://chrome.google.com/webstore/detail/pkaglmndhfgdaiaccjglghcbnfinfffa";
-var linkthemedownload = "https://chrome.google.com/webstore/detail/fpddgembdeaikopmbfiokjolihbamcca";
-} else {
-// default for Microsoft Edge
-var stefanvdurl = "https://chrome.google.com/webstore/detail/bfbmjmiodbnnpllbbbfblcplfjjepjdn";
-var reviewstefanvdurl = "https://chrome.google.com/webstore/detail/turn-off-the-lights/bfbmjmiodbnnpllbbbfblcplfjjepjdn/reviews";
-var linkfndownload = "https://chrome.google.com/webstore/detail/finance-toolbar/cichbngoomgnobmmjpagmbkimbamigie";
-var linkppdownload = "https://chrome.google.com/webstore/detail/proper-menubar/egclcjdpndeoioimlbbbmdhcaopnedkp";
-var linkzodownload = "https://chrome.google.com/webstore/detail/zoom/lajondecmobodlejlcjllhojikagldgd";
-var linkaadownload = "https://chrome.google.com/webstore/detail/pkaglmndhfgdaiaccjglghcbnfinfffa";
-var linkthemedownload = "https://chrome.google.com/webstore/detail/fpddgembdeaikopmbfiokjolihbamcca";
-}
 
 // Remove remember
 $("skipremember").addEventListener('click', function() {$('remembershare').style.display = "none";});
@@ -2162,7 +2108,133 @@ $("autostopaddbutton").addEventListener('click', function() {autostopaddWhitelis
 $("autostopremovebutton").addEventListener('click', function() {autostopremoveSelectedExcludedDomain();});
 
 // Reset settings
-$("resettotl").addEventListener('click', function() {prefManager.deleteBranch("extensions.TurnOfftheLights");location.reload();});
+$("resettotl").addEventListener('click', function() {
+//prefManager.deleteBranch("extensions.TurnOfftheLights.");
+prefManager.setBoolPref("extensions.TurnOfftheLights.firstrun", true);
+prefManager.setCharPref("extensions.TurnOfftheLights.interval", "80");
+prefManager.setCharPref("extensions.TurnOfftheLights.lightcolor", "#000000");
+prefManager.setBoolPref("extensions.TurnOfftheLights.pageaction", true);
+prefManager.setBoolPref("extensions.TurnOfftheLights.autoplay", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.playlist", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.flash", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.head", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.fadein", true);
+prefManager.setBoolPref("extensions.TurnOfftheLights.fadeout", true);
+prefManager.setBoolPref("extensions.TurnOfftheLights.infobar", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.sharebutton", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.likebutton", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.shortcutlight", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.suggestions", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.videoheadline", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.eastereggs", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.contextmenus", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.readerlargestyle", true);
+prefManager.setBoolPref("extensions.TurnOfftheLights.viewcount", false);
+prefManager.setCharPref("extensions.TurnOfftheLights.lightimage", "http://www.turnoffthelights.com/extension/images/theater.jpg");
+prefManager.setCharPref("extensions.TurnOfftheLights.excludedDomains", "{\"http://www.blogger.com\":true,\"http://www.nytimes.com\":true}");
+prefManager.setBoolPref("extensions.TurnOfftheLights.nighttime", false);
+prefManager.setCharPref("extensions.TurnOfftheLights.begintime", "21:00");
+prefManager.setCharPref("extensions.TurnOfftheLights.endtime", "23:45");
+prefManager.setBoolPref("extensions.TurnOfftheLights.addvideobutton", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.likebar", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.password", false);
+prefManager.setCharPref("extensions.TurnOfftheLights.enterpassword", "");
+prefManager.setBoolPref("extensions.TurnOfftheLights.lightimagea", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.lightimagen", true);
+prefManager.setBoolPref("extensions.TurnOfftheLights.readera", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.readern", true);
+prefManager.setBoolPref("extensions.TurnOfftheLights.eyea", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.eyen", true);
+prefManager.setBoolPref("extensions.TurnOfftheLights.eyealist", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.mousespotlighto", true);
+prefManager.setBoolPref("extensions.TurnOfftheLights.mousespotlightc", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.mousespotlighta", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.mousespotlightt", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.ambilight", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.ambilightfixcolor", true);
+prefManager.setBoolPref("extensions.TurnOfftheLights.ambilight4color", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.ambilightvarcolor", false);
+prefManager.setCharPref("extensions.TurnOfftheLights.ambilightrangeblurradius", "50");
+prefManager.setCharPref("extensions.TurnOfftheLights.ambilightrangespreadradius", "5");
+prefManager.setCharPref("extensions.TurnOfftheLights.ambilightcolorhex", "#47C2FF");
+prefManager.setCharPref("extensions.TurnOfftheLights.ambilight1colorhex", "#FF0000");
+prefManager.setCharPref("extensions.TurnOfftheLights.ambilight2colorhex", "#FFEE00");
+prefManager.setCharPref("extensions.TurnOfftheLights.ambilight3colorhex", "#00FF00");
+prefManager.setCharPref("extensions.TurnOfftheLights.ambilight4colorhex", "#0000FF");
+prefManager.setBoolPref("extensions.TurnOfftheLights.noflash", true);
+prefManager.setBoolPref("extensions.TurnOfftheLights.hardflash", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.ecosaver", false);
+prefManager.setCharPref("extensions.TurnOfftheLights.ecosavertime", "60");
+prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic1", true);
+prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic2", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic3", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic4", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic5", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.hoveroptiondyn5", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.autoplayonly", false);
+prefManager.setCharPref("extensions.TurnOfftheLights.autoplayDomains", "{\"http://www.youtube.com\":true,\"https://www.youtube.com\":true,\"http://www.vimeo.com\":true}");
+prefManager.setBoolPref("extensions.TurnOfftheLights.blur", false);
+prefManager.setCharPref("extensions.TurnOfftheLights.maxquality", "hd1080");
+prefManager.setBoolPref("extensions.TurnOfftheLights.autowidthyoutube", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.customqualityyoutube", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.cinemaontop", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.alllightsoff", false);
+prefManager.setCharPref("extensions.TurnOfftheLights.spotlightradius", "50");
+prefManager.setBoolPref("extensions.TurnOfftheLights.atmosphereonly", false);
+prefManager.setCharPref("extensions.TurnOfftheLights.atmosphereDomains", "{\"http://www.youtube.com\":true,\"https://www.youtube.com\":true,\"http://www.vimeo.com\":true}");
+prefManager.setBoolPref("extensions.TurnOfftheLights.optionskipremember", false);
+prefManager.setCharPref("extensions.TurnOfftheLights.countremember", "0");
+prefManager.setBoolPref("extensions.TurnOfftheLights.nighttheme", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.nightonly", false);
+prefManager.setCharPref("extensions.TurnOfftheLights.nightDomains", "{\"http://www.youtube.com\":true,\"https://www.youtube.com\":true,\"http://www.nytimes.com\":true}");
+prefManager.setBoolPref("extensions.TurnOfftheLights.nightenabletheme", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.autoplaydelay", false);
+prefManager.setCharPref("extensions.TurnOfftheLights.autoplaydelaytime", "3");
+prefManager.setBoolPref("extensions.TurnOfftheLights.motion", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.lightimagelin", false);
+prefManager.setCharPref("extensions.TurnOfftheLights.linearsq", "top");
+prefManager.setCharPref("extensions.TurnOfftheLights.colora", "#000000");
+prefManager.setCharPref("extensions.TurnOfftheLights.intervallina", "0");
+prefManager.setCharPref("extensions.TurnOfftheLights.colorb", "#858585");
+prefManager.setCharPref("extensions.TurnOfftheLights.intervallinb", "100");
+prefManager.setBoolPref("extensions.TurnOfftheLights.speech", false);
+prefManager.setCharPref("extensions.TurnOfftheLights.speechlang", "");
+prefManager.setCharPref("extensions.TurnOfftheLights.speechcountry", "");
+prefManager.setBoolPref("extensions.TurnOfftheLights.atmosvivid", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.cammotiononly", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.speechonly", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.autoplaychecklistwhite", true);
+prefManager.setBoolPref("extensions.TurnOfftheLights.autoplaychecklistblack", false);
+prefManager.setCharPref("extensions.TurnOfftheLights.cammotionDomains", "{\"http://www.youtube.com\":true,\"https://www.youtube.com\":true,\"http://www.vimeo.com\":true}");
+prefManager.setCharPref("extensions.TurnOfftheLights.speechDomains", "{\"http://www.youtube.com\":true,\"https://www.youtube.com\":true,\"http://www.vimeo.com\":true}");
+prefManager.setBoolPref("extensions.TurnOfftheLights.slideeffect", false);
+prefManager.setCharPref("extensions.TurnOfftheLights.reviewedlastonversion", "");
+prefManager.setCharPref("extensions.TurnOfftheLights.applastonversion", "");
+prefManager.setBoolPref("extensions.TurnOfftheLights.autostop", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.autostoponly", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.autostopchecklistwhite", true);
+prefManager.setBoolPref("extensions.TurnOfftheLights.autostopchecklistblack", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.nighthover", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.nightmodechecklistwhite", true);
+prefManager.setBoolPref("extensions.TurnOfftheLights.nightmodechecklistblack", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.nmtopleft", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.nmtopright", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.nmbottomright", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.nmbottomleft", true);
+prefManager.setBoolPref("extensions.TurnOfftheLights.nmcustom", false);
+prefManager.setCharPref("extensions.TurnOfftheLights.nmcustomx", "25px");
+prefManager.setCharPref("extensions.TurnOfftheLights.nmcustomy", "25px");
+prefManager.setBoolPref("extensions.TurnOfftheLights.nightactivetime", false);
+prefManager.setCharPref("extensions.TurnOfftheLights.nmbegintime", "21:00");
+prefManager.setCharPref("extensions.TurnOfftheLights.nmendtime", "23:45");
+prefManager.setBoolPref("extensions.TurnOfftheLights.lampandnightmode", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.eyechecklistwhite", true);
+prefManager.setBoolPref("extensions.TurnOfftheLights.eyechecklistblack", false);
+prefManager.setCharPref("extensions.TurnOfftheLights.autostopDomains", "{\"http://www.youtube.com\":true,\"https://www.youtube.com\":true,\"http://www.vimeo.com\":true}");
+prefManager.setBoolPref("extensions.TurnOfftheLights.enablesync", false);
+window.location = window.location;
+});
 
 // linearsq
 $("linearsq").addEventListener('click', function() {test();save_options();});
