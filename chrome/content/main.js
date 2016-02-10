@@ -74,7 +74,7 @@ if (firstrun) {
   Services.prefs.setCharPref("extensions.TurnOfftheLights.installedVersion", curVersion);
   /* Code related to firstrun */
   window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("https://www.turnoffthelights.com/extension/firefoxguide.html"); }, 1000);
-  window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("chrome://turnoffthelights/content/options.html?welcome"); }, 1000);
+  window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("https://www.turnoffthelights.com/extension/firefoxwelcome.html"); }, 1000);
 } else {
   try {
     var installedVersion = Services.prefs.getCharPref("extensions.TurnOfftheLights.installedVersion");
