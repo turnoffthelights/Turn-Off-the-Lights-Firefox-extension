@@ -3,7 +3,7 @@
 
 Turn Off the Lights
 The entire page will be fading to dark, so you can watch the videos as if you were in the cinema.
-Copyright (C) 2015 Stefan vd
+Copyright (C) 2016 Stefan vd
 www.stefanvd.net
 www.turnoffthelights.com
 
@@ -159,6 +159,16 @@ function save_options(){
 	else prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic4", false);		
 	if($('dynamic5').checked)prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic5", true);
 	else prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic5", false);
+    if($('dynamic6').checked)prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic6", true);
+    else prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic6", false);
+	if($('dynamic7').checked)prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic7", true);
+	else prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic7", false);
+	if($('dynamic8').checked)prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic8", true);
+	else prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic8", false);
+	if($('dynamic9').checked)prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic9", true);
+	else prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic9", false);
+	if($('dynamic10').checked)prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic10", true);
+	else prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic10", false);
 	if($('noflash').checked)prefManager.setBoolPref("extensions.TurnOfftheLights.noflash", true);
 	else prefManager.setBoolPref("extensions.TurnOfftheLights.noflash", false);
 	if($('hardflash').checked)prefManager.setBoolPref("extensions.TurnOfftheLights.hardflash", true);
@@ -255,6 +265,21 @@ function save_options(){
 	else prefManager.setBoolPref("extensions.TurnOfftheLights.eyechecklistwhite", false);
 	if($('eyechecklistblack').checked)prefManager.setBoolPref("extensions.TurnOfftheLights.eyechecklistblack", true);
 	else prefManager.setBoolPref("extensions.TurnOfftheLights.eyechecklistblack", false);
+	prefManager.setCharPref("extensions.TurnOfftheLights.nightmodebck", $('nightmodebck').value);
+	prefManager.setCharPref("extensions.TurnOfftheLights.nightmodetxt", $('nightmodetxt').value);
+	if ($('no360youtube').checked) prefManager.setBoolPref("extensions.TurnOfftheLights.no360youtube", true);
+	else prefManager.setBoolPref("extensions.TurnOfftheLights.no360youtube", false);
+	if ($('videotool').checked) prefManager.setBoolPref("extensions.TurnOfftheLights.videotool", true);
+	else prefManager.setBoolPref("extensions.TurnOfftheLights.videotool", false);
+	if ($('reflection').checked) prefManager.setBoolPref("extensions.TurnOfftheLights.reflection", true);
+	else prefManager.setBoolPref("extensions.TurnOfftheLights.reflection", false);
+	prefManager.setCharPref("extensions.TurnOfftheLights.reflectionamount", $('reflectionamount').value);
+	if ($('videotoolonly').checked) prefManager.setBoolPref("extensions.TurnOfftheLights.videotoolonly", true);
+	else prefManager.setBoolPref("extensions.TurnOfftheLights.videotoolonly", false);
+	if ($('videotoolchecklistwhite').checked) prefManager.setBoolPref("extensions.TurnOfftheLights.videotoolchecklistwhite", true);
+	else prefManager.setBoolPref("extensions.TurnOfftheLights.videotoolchecklistwhite", false);
+	if ($('videotoolchecklistblack').checked) prefManager.setBoolPref("extensions.TurnOfftheLights.videotoolchecklistblack", true);
+	else prefManager.setBoolPref("extensions.TurnOfftheLights.videotoolchecklistblack", false);
 	
 // Excluded domains
 var excludedDomainsBox = $("excludedDomainsBox");
@@ -304,6 +329,13 @@ var autostopDomains = {};
 for (var i = 0; i < autostopDomainsBox.length; i++)
 	autostopDomains[autostopDomainsBox.options[i].value] = true;
 	prefManager.setCharPref("extensions.TurnOfftheLights.autostopDomains", JSON.stringify(autostopDomains));
+
+// videotool Excluded domains
+var videotoolDomainsBox = $("videotoolDomainsBox");
+var videotoolDomains = {};
+for (var i = 0; i < videotoolDomainsBox.length; i++)
+	videotoolDomains[videotoolDomainsBox.options[i].value] = true;
+    prefManager.setCharPref("extensions.TurnOfftheLights.videotoolDomains", JSON.stringify(autostopDomains));
 }
 
 // Option to read current value from window.localStorage
@@ -486,7 +518,12 @@ $("select_dialect").addEventListener('change', function() {save_options();});
 	if(prefManager.getBoolPref("extensions.TurnOfftheLights.dynamic2") == true){$('dynamic2').checked = true;$("lightdynamic").value = chrome.i18n.getMessage('desdynamicblocks');}
 	if(prefManager.getBoolPref("extensions.TurnOfftheLights.dynamic3") == true){$('dynamic3').checked = true;$("lightdynamic").value = chrome.i18n.getMessage('desdynamicraindrops');}
 	if(prefManager.getBoolPref("extensions.TurnOfftheLights.dynamic4") == true){$('dynamic4').checked = true;$("lightdynamic").value = chrome.i18n.getMessage('desdynamiccloud');}
-	if(prefManager.getBoolPref("extensions.TurnOfftheLights.dynamic5") == true){$('dynamic5').checked = true;$("lightdynamic").value = chrome.i18n.getMessage('desdynamicspace');}
+	if(prefManager.getBoolPref("extensions.TurnOfftheLights.dynamic5") == true){$('dynamic5').checked = true; $("lightdynamic").value = chrome.i18n.getMessage('desdynamicspace'); }
+	if(prefManager.getBoolPref("extensions.TurnOfftheLights.dynamic6") == true){$('dynamic6').checked = true; $("lightdynamic").value = chrome.i18n.getMessage('desdynamicsmoke'); }
+	if(prefManager.getBoolPref("extensions.TurnOfftheLights.dynamic7") == true){$('dynamic7').checked = true; $("lightdynamic").value = chrome.i18n.getMessage('desdynamicdotscolor'); }
+	if(prefManager.getBoolPref("extensions.TurnOfftheLights.dynamic8") == true){$('dynamic8').checked = true; $("lightdynamic").value = chrome.i18n.getMessage('desdynamicstorm'); }
+	if(prefManager.getBoolPref("extensions.TurnOfftheLights.dynamic9") == true){$('dynamic9').checked = true; $("lightdynamic").value = chrome.i18n.getMessage('desdynamictriangulation'); }
+	if(prefManager.getBoolPref("extensions.TurnOfftheLights.dynamic10") == true){$('dynamic10').checked = true;$("lightdynamic").value = chrome.i18n.getMessage('desdynamicstars');}
 	if(prefManager.getBoolPref("extensions.TurnOfftheLights.hoveroptiondyn5") == true){$('hoveroptiondyn5').checked = true;}
 	if(prefManager.getBoolPref("extensions.TurnOfftheLights.autoplayonly") == true)$('autoplayonly').checked = true;
 	if(prefManager.getBoolPref("extensions.TurnOfftheLights.blur") == true)$('blur').checked = true;
@@ -541,7 +578,8 @@ $("select_dialect").addEventListener('change', function() {save_options();});
 		
 	if(prefManager.getCharPref("extensions.TurnOfftheLights.reviewedlastonversion") == versionb){$("sectionreviewbox").style.display = "none";}
 	if(prefManager.getCharPref("extensions.TurnOfftheLights.applastonversion") == versionb){$("sectionauroraplayerappbox").style.display = "none";}
-	
+	if (prefManager.getCharPref("extensions.TurnOfftheLights.mobilelastonversion") == versionb) { $("sectionmobileappbox").style.display = "none"; }
+
 		})
 		} catch (ex) {} // silently fail
 	if(prefManager.getBoolPref("extensions.TurnOfftheLights.autostop") == true)$('autostop').checked = true;
@@ -566,7 +604,19 @@ $("select_dialect").addEventListener('change', function() {save_options();});
 	else{$('lampandnightmode').checked = false;}
 	if(prefManager.getBoolPref("extensions.TurnOfftheLights.eyechecklistwhite") == true){$('eyechecklistwhite').checked = true;}
 	if(prefManager.getBoolPref("extensions.TurnOfftheLights.eyechecklistblack") == true){$('eyechecklistblack').checked = true;}
-	
+	if (prefManager.getCharPref("extensions.TurnOfftheLights.nightmodebck")) { $('nightmodebck').value = prefManager.getCharPref("extensions.TurnOfftheLights.nightmodebck"); }
+	else { $('nightmodebck').value = "#000000"; }
+	if (prefManager.getCharPref("extensions.TurnOfftheLights.nightmodetxt")) { $('nightmodetxt').value = prefManager.getCharPref("extensions.TurnOfftheLights.nightmodetxt"); }
+	else { $('nightmodetxt').value = "#ffffff"; }
+	if (prefManager.getBoolPref("extensions.TurnOfftheLights.no360youtube") == true) { $('no360youtube').checked = true; }
+	if (prefManager.getBoolPref("extensions.TurnOfftheLights.videotool") == true) { $('videotool').checked = true; }
+	if (prefManager.getBoolPref("extensions.TurnOfftheLights.reflection") == true) { $('reflection').checked = true; }
+	if (prefManager.getCharPref("extensions.TurnOfftheLights.reflectionamount")) { $('reflectionamount').value = prefManager.getCharPref("extensions.TurnOfftheLights.reflectionamount"); }
+	else { $('reflectionamount').value = "20"; }
+	if (prefManager.getBoolPref("extensions.TurnOfftheLights.videotoolonly") == true) { $('videotoolonly').checked = true; }
+	if (prefManager.getBoolPref("extensions.TurnOfftheLights.videotoolchecklistwhite") == true) { $('videotoolchecklistwhite').checked = true; }
+	if (prefManager.getBoolPref("extensions.TurnOfftheLights.videotoolchecklistblack") == true) { $('videotoolchecklistblack').checked = true; }
+
 // show remember page
 var countremember = prefManager.getCharPref("extensions.TurnOfftheLights.countremember");
 if(!countremember){countremember = 0;}
@@ -607,6 +657,40 @@ prefManager.setCharPref("extensions.TurnOfftheLights.countremember", countrememb
     for ( var id in contentDivs ) {
     	if ( i != 0 ) contentDivs[id].className = 'page hidden';
         i++;
+    }
+
+    // open direct the tab to 'welcome' or the 'guide'
+    var urlwebcomputer = unescape(('' + self.location.search).substring(1));
+    if (urlwebcomputer == "welcome") {
+        $("tabshare").click();
+        var selectedId = getHash("tab6");
+
+        // Highlight the selected tab, and dim all others.
+        // Also show the selected content div, and hide all others.
+        for (var id in contentDivs) {
+            if (id == selectedId) {
+                tabLinks[id].className = 'navbar-item-selected';
+                contentDivs[id].className = 'page';
+            } else {
+                tabLinks[id].className = 'navbar-item';
+                contentDivs[id].className = 'page hidden';
+            }
+        }
+    } else if (urlwebcomputer == "welcomeguide") {
+        $("tabguide").click();
+        var selectedId = getHash("tab4");
+
+        // Highlight the selected tab, and dim all others.
+        // Also show the selected content div, and hide all others.
+        for (var id in contentDivs) {
+            if (id == selectedId) {
+                tabLinks[id].className = 'navbar-item-selected';
+                contentDivs[id].className = 'page';
+            } else {
+                tabLinks[id].className = 'navbar-item';
+                contentDivs[id].className = 'page hidden';
+            }
+        }
     }
 
     // display version number
@@ -745,7 +829,23 @@ if(typeof autostopDomains == "string") {
 	for(var i = 0; i < asbuf.length; i++)
 		appendToListBox("autostopDomainsBox", asbuf[i]);
     }
+
 	
+// video tool bar - Excluded domains - sort these alphabetically
+var videotoolDomains = prefManager.getCharPref("extensions.TurnOfftheLights.videotoolDomains");
+if(typeof videotoolDomains == "undefined")
+videotoolDomains = JSON.stringify({'http://www.youtube.com': true, 'https://www.youtube.com': true, 'http://www.vimeo.com': true});
+		
+if(typeof videotoolDomains == "string") {
+	videotoolDomains = JSON.parse(videotoolDomains);
+	var vtbbuf = [];
+	for(var domain in videotoolDomains)
+		vtbbuf.push(domain);
+        vtbbuf.sort();
+	for(var i = 0; i < vtbbuf.length; i++)
+		appendToListBox("videotoolDomainsBox", vtbbuf[i]);
+    }
+		
 	test(); // everything readed, do the "test"
 	
 } // end read
@@ -1120,6 +1220,22 @@ function autostopremoveSelectedExcludedDomain() {
     save_options();
 }
 
+// whitelist videotool domain
+function videotooladdWhitelistDomain() {
+    var domain = $("videotoolwebsiteurl").value;
+    appendToListBox("videotoolDomainsBox", domain);
+    save_options();
+}
+
+function videotoolremoveSelectedExcludedDomain() {
+    var videotoolDomainsBox = $("videotoolDomainsBox");
+    for (var i = videotoolDomainsBox.length - 1; i >= 0; i--) {
+        if (videotoolDomainsBox.options[i].selected)
+            videotoolDomainsBox.remove(i);
+    }
+    save_options();
+}
+
 // fade effects control -> not when loaded page
 function lightscontrol() {
 var jump = $('interval').value;
@@ -1151,6 +1267,16 @@ var clouds = $('clouds');
 if(clouds) {newdynmaster.removeChild(clouds);}
 var space = $('space');
 if(space) {newdynmaster.removeChild(space);}
+var smoke = $('smoke');
+if(smoke) {newdynmaster.removeChild(smoke);}
+var flyingdots = $('flyingdots');
+if(flyingdots) {newdynmaster.removeChild(flyingdots);}
+var storm = $('storm');
+if(storm) {newdynmaster.removeChild(storm);}
+var triangle = $('triangle');
+if(triangle) {newdynmaster.removeChild(triangle);}
+var stars = $('stars');
+if(stars) {newdynmaster.removeChild(stars);}
 }
 
 // test general
@@ -1187,6 +1313,7 @@ var speechonly = $('speechonly');
 var nightactivetime = $('nightactivetime');
 var nighttheme = $('nighttheme');
 var autostoponly = $('autostoponly');
+var videotoolonly = $('videotoolonly');
 
 if(ambilight.checked == true){
 drawImage();
@@ -1321,6 +1448,17 @@ else{$('lampandnightmode').disabled = true;}
 
 if(autostoponly.checked == true){$('autostopDomainsBox').disabled = false;$('autostopremovebutton').disabled = false;$('autostopaddbutton').disabled = false;$('autostopwebsiteurl').disabled = false;$('autostopchecklistwhite').disabled = false;$('autostopchecklistblack').disabled = false;}
 else{$('autostopDomainsBox').disabled = true;$('autostopremovebutton').disabled = true;$('autostopaddbutton').disabled = true;$('autostopwebsiteurl').disabled = true;$('autostopchecklistwhite').disabled = true;$('autostopchecklistblack').disabled = true;}
+
+if(videotoolonly.checked == true){$('videotoolchecklistwhite').disabled = false;$('videotoolchecklistblack').disabled = false;$('videotoolDomainsBox').disabled = false;$('videotoolwebsiteurl').disabled = false;$('videotooladdbutton').disabled = false;$('videotoolremovebutton').disabled = false;}
+else{$('videotoolchecklistwhite').disabled = true;$('videotoolchecklistblack').disabled = true;$('videotoolDomainsBox').disabled = true;$('videotoolwebsiteurl').disabled = true;$('videotooladdbutton').disabled = true;$('videotoolremovebutton').disabled = true;}
+
+if(reflection.checked == true){$('beeld').style.webkitBoxReflect = "below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), to(black),color-stop("+(100-$('reflectionamount').value)/100+", transparent))";}
+else{$('beeld').style.webkitBoxReflect = "";}
+
+			
+// done with reading
+// run now the dynamic background if enabled
+dynamictest();
 }
 
 function dynamictest(){
@@ -1464,7 +1602,436 @@ if(hoveroptiondyn5.checked == true){
 	}
 }
 
+} else if (dynamic6.checked == true) {
+    removedynamic();
+    var smoke = document.createElement("div"); smoke.setAttribute('id', 'smoke'); smoke.style.width = "100%"; smoke.style.height = "100%"; newdynmaster.appendChild(smoke);
+    var newsmokecanvas = document.createElement("canvas"); newsmokecanvas.setAttribute('id', 'stefanvddynamicsmoke'); newsmokecanvas.style.width = "100%"; newsmokecanvas.style.height = "100%"; smoke.appendChild(newsmokecanvas);
+
+    // Create an array to store our particles
+    var particles = [];
+
+    // The amount of particles to render
+    var particleCount = 30;
+
+    // The maximum velocity in each direction
+    var maxVelocity = 2;
+
+    // The target frames per second (how often do we want to update / redraw the scene)
+    var targetFPS = 20;
+
+    // Set the dimensions of the canvas as variables so they can be used.
+    var canvasWidth = 400;
+    var canvasHeight = 400;
+
+    // Create an image object (only need one instance)
+    var imageObj = new Image();
+
+    // Once the image has been downloaded then set the image on all of the particles
+    imageObj.onload = function () {
+        particles.forEach(function (particle) {
+            particle.setImage(imageObj);
+        });
+    };
+
+    // Once the callback is arranged then set the source of the image
+    imageObj.src = "images/Smoke10.png";
+
+    // A function to create a particle object.
+    function Particle(context) {
+
+        // Set the initial x and y positions
+        this.x = 0;
+        this.y = 0;
+
+        // Set the initial velocity
+        this.xVelocity = 0;
+        this.yVelocity = 0;
+
+        // Set the radius
+        this.radius = 5;
+
+        // Store the context which will be used to draw the particle
+        this.context = context;
+
+        // The function to draw the particle on the canvas.
+        this.draw = function () {
+
+            // If an image is set draw it
+            if (this.image) {
+                this.context.drawImage(this.image, this.x - 128, this.y - 128);
+                // If the image is being rendered do not draw the circle so break out of the draw function                
+                return;
+            }
+            // Draw the circle as before, with the addition of using the position and the radius from this object.
+            this.context.beginPath();
+            this.context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false);
+            this.context.fillStyle = "rgba(88, 88, 88, 1)";
+            this.context.fill();
+            this.context.closePath();
+        };
+
+        // Update the particle.
+        this.update = function () {
+            // Update the position of the particle with the addition of the velocity.
+            this.x += this.xVelocity;
+            this.y += this.yVelocity;
+
+            // Check if has crossed the right edge
+            if (this.x >= canvasWidth) {
+                this.xVelocity = -this.xVelocity;
+                this.x = canvasWidth;
+            }
+                // Check if has crossed the left edge
+            else if (this.x <= 0) {
+                this.xVelocity = -this.xVelocity;
+                this.x = 0;
+            }
+
+            // Check if has crossed the bottom edge
+            if (this.y >= canvasHeight) {
+                this.yVelocity = -this.yVelocity;
+                this.y = canvasHeight;
+            }
+
+                // Check if has crossed the top edge
+            else if (this.y <= 0) {
+                this.yVelocity = -this.yVelocity;
+                this.y = 0;
+            }
+        };
+
+        // A function to set the position of the particle.
+        this.setPosition = function (x, y) {
+            this.x = x;
+            this.y = y;
+        };
+
+        // Function to set the velocity.
+        this.setVelocity = function (x, y) {
+            this.xVelocity = x;
+            this.yVelocity = y;
+        };
+
+        this.setImage = function (image) {
+            this.image = image;
+        }
+    }
+
+    // A function to generate a random number between 2 values
+    function generateRandom(min, max) { return Math.random() * (max - min) + min; }
+
+    var context;
+    // Initialise the scene and set the context if possible
+    function runsmoke() {
+        var canvas = document.getElementById('stefanvddynamicsmoke');
+        if (canvas.getContext) {
+            // Set the context variable so it can be re-used
+            context = canvas.getContext('2d');
+            // Create the particles and set their initial positions and velocities
+            for (var i = 0; i < particleCount; ++i) {
+                var particle = new Particle(context);
+
+                // Set the position to be inside the canvas bounds
+                particle.setPosition(generateRandom(0, canvasWidth), generateRandom(0, canvasHeight));
+
+                // Set the initial velocity to be either random and either negative or positive
+                particle.setVelocity(generateRandom(-maxVelocity, maxVelocity), generateRandom(-maxVelocity, maxVelocity));
+                particles.push(particle);
+            }
+        }
+    }
+
+    // The function to draw the scene
+    function draw() {
+        // Clear the drawing surface and fill it with a black background
+        context.fillStyle = "rgba(0, 0, 0, 0.0)";
+        context.fillRect(0, 0, 400, 400);
+
+        // Go through all of the particles and draw them.
+        particles.forEach(function (particle) {
+            particle.draw();
+        });
+    }
+
+    // Update the scene
+    function smokeupdate() {
+        particles.forEach(function (particle) {
+            particle.update();
+        });
+    }
+
+    // Initialize the scene
+    runsmoke();
+
+    // If the context is set then we can draw the scene (if not then the browser does not support canvas)
+    if (context) {
+        window.setInterval(function () {
+            // Update the scene before drawing
+            smokeupdate();
+
+            // Draw the scene
+            draw();
+        }, 1000 / targetFPS);
+    }
+
+} else if (dynamic7.checked == true) {
+    removedynamic();
+    var flyingdots = document.createElement("div"); flyingdots.setAttribute('id', 'flyingdots'); newdynmaster.appendChild(flyingdots);
+    var newdyndotsworld = document.createElement("div"); newdyndotsworld.setAttribute('id', 'stefanvddynamicdots'); flyingdots.appendChild(newdyndotsworld);
+    for (var j = 1; j < 100; j++) {
+        var newminic = document.createElement("div");
+        newminic.className = "c";
+        newdyndotsworld.appendChild(newminic);
+    }
+} else if (dynamic8.checked == true) {
+    removedynamic();
+    var storm = document.createElement("div"); storm.setAttribute('id', 'storm'); newdynmaster.appendChild(storm);
+    var newstormcanvas = document.createElement("canvas"); newstormcanvas.setAttribute('id', 'stefanvddynamicstorm'); newstormcanvas.style.width = "100%"; newstormcanvas.style.height = "100%"; storm.appendChild(newstormcanvas);
+
+    var stormcanvas = document.getElementById('stefanvddynamicstorm');
+    var sky = stormcanvas.getContext('2d');
+
+    var window_width = window.innerWidth * 1.5;
+    var window_height = window.innerHeight * 1.5;
+
+    var fall_speed = 0.7;
+    var wind_speed = 5;
+
+    var rain_weight = 0.11;
+    var rain_color = '255,255,255';
+
+    var drop_count;
+    var drops = [];
+
+    function randomFrom(min, max) {
+        return (Math.random() * (max - min) + min);
+    }
+
+    function resizer() {
+        window_width = window.innerWidth * 1.5;
+        window_height = window.innerHeight * 1.5;
+        drop_count = window_width * rain_weight;
+
+        stormcanvas.setAttribute('width', window_width);
+        stormcanvas.setAttribute('height', window_height);
+    }
+
+    window.addEventListener('resize', resizer, false);
+
+    function paintSky() {
+        for (var i = 0; i < drop_count; i++) {
+            drops[i] = new drop();
+            drops[i].reset();
+        }
+
+        rain();
+    }
+
+    function rain() {
+        sky.clearRect(0, 0, window_width, window_height);
+
+        var drops_length = drops.length;
+
+        for (var i = 0; i < drops_length; i++) {
+            var drop = drops[i];
+            drop.fall();
+            drop.draw();
+        }
+
+        window.requestAnimFrame(rain);
+    }
+
+    function drop() {
+        this.reset = function () {
+            this.r = randomFrom(0.8, 1.6);
+            this.l = (this.r * 250);
+            this.x = randomFrom((window_width * -0.25), (window_width * 1.125));
+            this.y = randomFrom((window_height * -0.25), (window_height * -1));
+            this.dx = randomFrom((wind_speed - 3), (wind_speed + 3));
+            this.dy = (this.r * (100 * fall_speed));
+            this.offset = (this.l * (this.dx / this.dy));
+            this.opacity = (this.r * randomFrom(0.2, 0.6));
+            this.drip = this.render();
+        };
+
+        this.render = function () {
+            var canv = document.createElement('canvas');
+            var ctx = canv.getContext('2d');
+            canv.setAttribute('width', Math.abs(this.offset) + this.r);
+            canv.setAttribute('height', this.l);
+
+            ctx.beginPath();
+
+            var drip = ctx.createLinearGradient(0, 0, 0, this.l);
+            drip.addColorStop(0, 'rgba(' + rain_color + ', 0)');
+            drip.addColorStop(1, 'rgba(' + rain_color + ', ' + this.opacity + ')');
+            ctx.fillStyle = drip;
+
+            //sky.rect(this.x, this.y, this.r, this.l);
+            var startX = (this.offset >= 0) ? 0 : Math.abs(this.offset);
+            ctx.moveTo(startX, 0);
+            ctx.lineTo(startX + this.r, 0);
+            ctx.lineTo(startX + this.r + this.offset, this.l);
+            ctx.lineTo(startX + this.offset, this.l);
+
+            ctx.closePath();
+            ctx.fill();
+
+            return canv;
+        };
+
+        this.draw = function () {
+            sky.drawImage(this.drip, this.x, this.y);
+        };
+
+        this.fall = function () {
+            this.x += this.dx;
+            this.y += this.dy;
+
+            if (this.y > (window_height * 1.25)) {
+                this.reset();
+            }
+        };
+    }
+
+    resizer();
+    paintSky();
+
+} else if (dynamic9.checked == true) {
+    removedynamic();
+    var triangle = document.createElement("div"); triangle.setAttribute('id', 'triangle'); newdynmaster.appendChild(triangle);
+
+    var refreshDuration = 10000;
+    var refreshTimeout;
+    var numPointsX;
+    var numPointsY;
+    var unitWidth;
+    var unitHeight;
+    var points;
+
+    function trianglerun() {
+        var triasvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        triasvg.setAttribute('width', window.innerWidth);
+        triasvg.setAttribute('height', window.innerHeight);
+        document.getElementById('triangle').appendChild(triasvg);
+
+        var unitSize = (window.innerWidth + window.innerHeight) / 20;
+        numPointsX = Math.ceil(window.innerWidth / unitSize) + 1;
+        numPointsY = Math.ceil(window.innerHeight / unitSize) + 1;
+        unitWidth = Math.ceil(window.innerWidth / (numPointsX - 1));
+        unitHeight = Math.ceil(window.innerHeight / (numPointsY - 1));
+
+        points = [];
+
+        for (var y = 0; y < numPointsY; y++) {
+            for (var x = 0; x < numPointsX; x++) {
+                points.push({ x: unitWidth * x, y: unitHeight * y, originX: unitWidth * x, originY: unitHeight * y });
+            }
+        }
+
+        randomize();
+
+        for (var i = 0; i < points.length; i++) {
+            if (points[i].originX != unitWidth * (numPointsX - 1) && points[i].originY != unitHeight * (numPointsY - 1)) {
+                var topLeftX = points[i].x;
+                var topLeftY = points[i].y;
+                var topRightX = points[i + 1].x;
+                var topRightY = points[i + 1].y;
+                var bottomLeftX = points[i + numPointsX].x;
+                var bottomLeftY = points[i + numPointsX].y;
+                var bottomRightX = points[i + numPointsX + 1].x;
+                var bottomRightY = points[i + numPointsX + 1].y;
+
+                var rando = Math.floor(Math.random() * 2);
+
+                for (var n = 0; n < 2; n++) {
+                    var polygon = document.createElementNS(triasvg.namespaceURI, 'polygon');
+
+                    if (rando == 0) {
+                        if (n == 0) {
+                            polygon.point1 = i;
+                            polygon.point2 = i + numPointsX;
+                            polygon.point3 = i + numPointsX + 1;
+                            polygon.setAttribute('points', topLeftX + ',' + topLeftY + ' ' + bottomLeftX + ',' + bottomLeftY + ' ' + bottomRightX + ',' + bottomRightY);
+                        } else if (n == 1) {
+                            polygon.point1 = i;
+                            polygon.point2 = i + 1;
+                            polygon.point3 = i + numPointsX + 1;
+                            polygon.setAttribute('points', topLeftX + ',' + topLeftY + ' ' + topRightX + ',' + topRightY + ' ' + bottomRightX + ',' + bottomRightY);
+                        }
+                    } else if (rando == 1) {
+                        if (n == 0) {
+                            polygon.point1 = i;
+                            polygon.point2 = i + numPointsX;
+                            polygon.point3 = i + 1;
+                            polygon.setAttribute('points', topLeftX + ',' + topLeftY + ' ' + bottomLeftX + ',' + bottomLeftY + ' ' + topRightX + ',' + topRightY);
+                        } else if (n == 1) {
+                            polygon.point1 = i + numPointsX;
+                            polygon.point2 = i + 1;
+                            polygon.point3 = i + numPointsX + 1;
+                            polygon.setAttribute('points', bottomLeftX + ',' + bottomLeftY + ' ' + topRightX + ',' + topRightY + ' ' + bottomRightX + ',' + bottomRightY);
+                        }
+                    }
+                    polygon.setAttribute('fill', 'rgba(0,0,0,' + (Math.random() / 3) + ')');
+                    var animate = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+                    animate.setAttribute('fill', 'freeze');
+                    animate.setAttribute('attributeName', 'points');
+                    animate.setAttribute('dur', refreshDuration + 'ms');
+                    animate.setAttribute('calcMode', 'linear');
+                    polygon.appendChild(animate);
+                    triasvg.appendChild(polygon);
+                }
+            }
+        }
+        refresh();
+    }
+
+    function randomize() {
+        for (var i = 0; i < points.length; i++) {
+            if (points[i].originX != 0 && points[i].originX != unitWidth * (numPointsX - 1)) {
+                points[i].x = points[i].originX + Math.random() * unitWidth - unitWidth / 2;
+            }
+            if (points[i].originY != 0 && points[i].originY != unitHeight * (numPointsY - 1)) {
+                points[i].y = points[i].originY + Math.random() * unitHeight - unitHeight / 2;
+            }
+        }
+    }
+
+    function refresh() {
+        randomize();
+        for (var i = 0; i < document.querySelector('#triangle svg').childNodes.length; i++) {
+            var polygon = document.querySelector('#triangle svg').childNodes[i];
+            var animate = polygon.childNodes[0];
+            if (animate.getAttribute('to')) {
+                animate.setAttribute('from', animate.getAttribute('to'));
+            }
+            animate.setAttribute('to', points[polygon.point1].x + ',' + points[polygon.point1].y + ' ' + points[polygon.point2].x + ',' + points[polygon.point2].y + ' ' + points[polygon.point3].x + ',' + points[polygon.point3].y);
+            animate.beginElement();
+        }
+        refreshTimeout = window.setTimeout(function () { refresh(); }, refreshDuration);
+    }
+
+    trianglerun();
+
+
+    function onResize() {
+        document.querySelector('#triangle svg').remove();
+        window.clearTimeout(refreshTimeout);
+        trianglerun();
+    }
+
+    window.onresize = onResize;
+
+} else if (dynamic10.checked == true) {
+    removedynamic();
+    var stars = document.createElement("div"); stars.setAttribute('id', 'stars'); newdynmaster.appendChild(stars);
+    for (var j = 1; j < 3; j++) {
+        var newmstar = document.createElement("div");
+        newmstar.id = "mstars" + [j];
+        stars.appendChild(newmstar);
+    }
 }
+
 }
 }
 
@@ -1909,17 +2476,14 @@ var today = new Date(); var y0 = today.getFullYear();$("yearnow").textContent = 
 // Read current value settings
 window.addEventListener('load', function() {
 read_options();
-dynamictest();
 yearnow();
 // Add the YouTube player
-$("dont-turn-off-the-lights").src = "http://www.youtube.com/embed/?listType=playlist&list=PLF155F53B3D8D07CB";
+$("dont-turn-off-the-lights").src = "https://www.youtube.com/embed/?listType=playlist&list=PLF155F53B3D8D07CB";
 // remove loading screen
 $('loading').style.display = "none";
 });
 
-document.addEventListener('DOMContentLoaded', function myfunction() {
-document.removeEventListener('DOMContentLoaded', myfunction, false); // remove listener, no longer needed
- 
+document.addEventListener('DOMContentLoaded', function () {
 // browser check
 var nAgt = navigator.userAgent;
 var browserName;
@@ -1931,6 +2495,30 @@ else if (urlbrowservendor.search("Google") >= 0) {browserName = "Google Chrome";
 else if (navigator.appCodeName == "Mozilla") {browserName = "Firefox";}
 else if ((nAgt.indexOf("Maxthon/"))!=-1) {browserName = "Maxthon";}
 
+// browser check
+if (browserName == "Firefox") {
+	// feature check speech and camera
+	// no support
+	$("helpcameramotion").style.display = "";
+	$("helpspeech").style.display = "";
+	$("speech").disabled = true;
+	$("select_language").disabled = true;
+	$("select_dialect").disabled = true;
+	$("speechonly").disabled = true;
+	$("motion").disabled = true;
+	$("cammotiononly").disabled = true;
+} else if (browserName == "Google Chrome") {
+	// feature check speech and camera
+	// support
+	$("helpcameramotion").style.display = "none";
+	$("helpspeech").style.display = "none";
+} else {
+	// feature check speech and camera
+	// support
+	$("helpcameramotion").style.display = "none";
+	$("helpspeech").style.display = "none";
+}
+
 // Firefox browser
 var stefanvdurl = "https://addons.mozilla.org/firefox/addon/turn-off-the-lights/";
 var reviewstefanvdurl = "https://addons.mozilla.org/firefox/addon/turn-off-the-lights/reviews/";
@@ -1939,6 +2527,10 @@ var linkppdownload = "https://addons.mozilla.org/firefox/addon/proper-menubar/";
 var linkzodownload = "https://addons.mozilla.org/firefox/addon/zoom/";
 var linkaadownload = "https://addons.mozilla.org/firefox/addon/ambient-aurea/";
 var linkthemedownload = "https://addons.mozilla.org/firefox/addon/turn-off-the-lights-theme/";
+
+var linktotlguide = "https://www.turnoffthelights.com/extension/firefoxguide.html";
+var linktotlchangelog = "https://www.turnoffthelights.com/extension/firefoxchangelog.html";
+var linktotlfan = "https://www.turnoffthelights.com/extension/firefoxwelcome.html";
 
 // Remove remember
 $("skipremember").addEventListener('click', function() {$('remembershare').style.display = "none";});
@@ -2027,10 +2619,10 @@ $("tabspeech").addEventListener('click', function() {ONworkaroundbugfromsafari()
 $("tabguide").addEventListener('click', function() {ONworkaroundbugfromsafari();$('welcomeguide').src = "http://www.turnoffthelights.com/extension/firefoxguide.html";$('welcomeshare').src = "";$("managed-prefs-banner").style.display = "none";});
 $("tabshare").addEventListener('click', function() {ONworkaroundbugfromsafari();$('welcomeguide').src = "";$('welcomeshare').src = "http://www.turnoffthelights.com/extension/fan.html";$("managed-prefs-banner").style.display = "none";});
 
-$("buttonreportissue").addEventListener('click', function() {window.open("http://www.turnoffthelights.com/support");});
-$("buttonchangelog").addEventListener('click', function() {window.open("http://www.turnoffthelights.com/extension/firefoxchangelog.html");});
-$("buttonreportlist").addEventListener('click', function() {window.open("http://www.turnoffthelights.com/extension/issueslist.html");});
-$("buttontranslateme").addEventListener('click', function() {window.open("http://www.turnoffthelights.com/extension/translate.html");});
+$("buttonreportissue").addEventListener('click', function () { window.open("http://www.turnoffthelights.com/support"); });
+$("buttonchangelog").addEventListener('click', function () { window.open(linktotlchangelog); });
+$("buttonreportlist").addEventListener('click', function () { window.open("http://www.turnoffthelights.com/extension/issueslist.html"); });
+$("buttontranslateme").addEventListener('click', function () { window.open("http://www.turnoffthelights.com/extension/translate.html"); });
 
 function ONworkaroundbugfromsafari(){$("dont-turn-off-the-lights").src = "";}
 function OFFworkaroundbugfromsafari(){$("dont-turn-off-the-lights").src = "http://www.youtube.com/embed/?listType=playlist&list=PLF155F53B3D8D07CB";}
@@ -2061,6 +2653,11 @@ $("dynamic").addEventListener('click', function() {if(dynamic.checked == true){d
 // Check dynamic
 $("dynamichide").addEventListener('click', function() {$("dynamicgallery").style.display = "";$("dynamicshow").style.display = "";$("dynamichide").style.display = "none";});
 $("dynamicshow").addEventListener('click', function() {$("dynamicgallery").style.display = "none";$("dynamicshow").style.display = "none";$("dynamichide").style.display = "";});
+$("totldynpaper10").addEventListener('click', function() {$("lightdynamic").value = chrome.i18n.getMessage('desdynamicstars');$('dynamic10').checked = true;dynamictest();save_options();});
+$("totldynpaper9").addEventListener('click', function() {$("lightdynamic").value = chrome.i18n.getMessage('desdynamictriangulation');$('dynamic9').checked = true;dynamictest();save_options();});
+$("totldynpaper8").addEventListener('click', function() {$("lightdynamic").value = chrome.i18n.getMessage('desdynamicstorm');$('dynamic8').checked = true;dynamictest();save_options();});
+$("totldynpaper7").addEventListener('click', function() {$("lightdynamic").value = chrome.i18n.getMessage('desdynamicdotscolor');$('dynamic7').checked = true;dynamictest();save_options();});
+$("totldynpaper6").addEventListener('click', function() {$("lightdynamic").value = chrome.i18n.getMessage('desdynamicsmoke');$('dynamic6').checked = true;dynamictest();save_options();});
 $("totldynpaper5").addEventListener('click', function() {$("lightdynamic").value = chrome.i18n.getMessage('desdynamicspace');$('dynamic5').checked = true;dynamictest();save_options();});
 $("totldynpaper4").addEventListener('click', function() {$("lightdynamic").value = chrome.i18n.getMessage('desdynamiccloud');$('dynamic4').checked = true;dynamictest();save_options();});
 $("totldynpaper3").addEventListener('click', function() {$("lightdynamic").value = chrome.i18n.getMessage('desdynamicraindrops');$('dynamic3').checked = true;dynamictest();save_options();});
@@ -2106,6 +2703,12 @@ $("autostopaddbutton").addEventListener('click', function() {autostopaddWhitelis
 
 // autostop Remove website
 $("autostopremovebutton").addEventListener('click', function() {autostopremoveSelectedExcludedDomain();});
+
+// video Add website
+$("videotooladdbutton").addEventListener('click', function() {videotooladdWhitelistDomain();});
+
+// video Remove website
+$("videotoolremovebutton").addEventListener('click', function() {videotoolremoveSelectedExcludedDomain();});
 
 // Reset settings
 $("resettotl").addEventListener('click', function() {
@@ -2171,6 +2774,11 @@ prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic2", false);
 prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic3", false);
 prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic4", false);
 prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic5", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic6", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic7", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic8", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic9", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic10", false);
 prefManager.setBoolPref("extensions.TurnOfftheLights.hoveroptiondyn5", false);
 prefManager.setBoolPref("extensions.TurnOfftheLights.autoplayonly", false);
 prefManager.setCharPref("extensions.TurnOfftheLights.autoplayDomains", "{\"http://www.youtube.com\":true,\"https://www.youtube.com\":true,\"http://www.vimeo.com\":true}");
@@ -2232,6 +2840,16 @@ prefManager.setBoolPref("extensions.TurnOfftheLights.lampandnightmode", false);
 prefManager.setBoolPref("extensions.TurnOfftheLights.eyechecklistwhite", true);
 prefManager.setBoolPref("extensions.TurnOfftheLights.eyechecklistblack", false);
 prefManager.setCharPref("extensions.TurnOfftheLights.autostopDomains", "{\"http://www.youtube.com\":true,\"https://www.youtube.com\":true,\"http://www.vimeo.com\":true}");
+prefManager.setCharPref("extensions.TurnOfftheLights.nightmodebck", "#000000");
+prefManager.setCharPref("extensions.TurnOfftheLights.nightmodetxt", "#ffffff");
+prefManager.setBoolPref("extensions.TurnOfftheLights.no360youtube", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.videotool", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.reflection", false);
+prefManager.setCharPref("extensions.TurnOfftheLights.reflectionamount", "20");
+prefManager.setBoolPref("extensions.TurnOfftheLights.videotoolonly", false);
+prefManager.setBoolPref("extensions.TurnOfftheLights.videotoolchecklistwhite", true);
+prefManager.setBoolPref("extensions.TurnOfftheLights.videotoolchecklistblack", false);
+prefManager.setCharPref("extensions.TurnOfftheLights.videotoolDomains", "{\"http://www.youtube.com\":true,\"https://www.youtube.com\":true,\"http://www.vimeo.com\":true}");
 prefManager.setBoolPref("extensions.TurnOfftheLights.enablesync", false);
 window.location = window.location;
 });
@@ -2246,6 +2864,10 @@ $("nt").addEventListener('click', function() {$("sectionreviewbox").style.displa
 // Aurora Player app box
 $("apgetapp").addEventListener('click', function() {window.open("http://www.stefanvd.net/project/auroraplayer.htm", "_blank");$("sectionauroraplayerappbox").style.display = "none";prefManager.setCharPref("extensions.TurnOfftheLights.applastonversion", $("version_number").textContent);});
 $("apnt").addEventListener('click', function() {$("sectionauroraplayerappbox").style.display = "none";prefManager.setCharPref("extensions.TurnOfftheLights.applastonversion", $("version_number").textContent);});
+    
+// Mobile app box
+$("magetapp").addEventListener('click', function() {window.open("https://www.turnoffthelights.com/mobile.html");$("sectionmobileappbox").style.display = "none";prefManager.setCharPref("extensions.TurnOfftheLights.mobilelastonversion", $("version_number").textContent);});
+$("mant").addEventListener('click', function() {$("sectionmobileappbox").style.display = "none";prefManager.setCharPref("extensions.TurnOfftheLights.mobilelastonversion", $("version_number").textContent);});
 
 // retina check
 if(window.devicePixelRatio >= 2) {
@@ -2253,27 +2875,6 @@ $("loadinglamp").src = "icons/icon16@2x.png";$("loadinglamp").style.width = "16p
 $("welcomelamp").src = "icons/icon16@2x.png";$("welcomelamp").style.width = "16px"; $("welcomelamp").style.height = "16px";
 $("rememberlamp").src = "icons/icon16@2x.png";$("rememberlamp").style.width = "16px"; $("rememberlamp").style.height = "16px";
 $("auroraplayericon").src = "images/aurora-player_32x32@2x.png";
-}
-
-// browser check
-if (browserName == "Firefox") {
-	// feature check speech and camera
-	$("helpcameramotion").style.display = "";
-	$("helpspeech").style.display = "";
-	$("speech").disabled = true;
-	$("select_language").disabled = true;
-	$("select_dialect").disabled = true;
-	$("speechonly").disabled = true;
-	$("motion").disabled = true;
-	$("cammotiononly").disabled = true;
-} else if (browserName == "Google Chrome") {
-	// feature check speech and camera
-	$("helpcameramotion").style.display = "none";
-	$("helpspeech").style.display = "none";
-} else {
-	// feature check speech and camera
-	$("helpcameramotion").style.display = "none";
-	$("helpspeech").style.display = "none";
 }
 
 // Firefox sync settings
@@ -2341,6 +2942,11 @@ prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic2", mustbesyncon);
 prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic3", mustbesyncon);
 prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic4", mustbesyncon);
 prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic5", mustbesyncon);
+prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic6", mustbesyncon);
+prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic7", mustbesyncon);
+prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic8", mustbesyncon);
+prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic9", mustbesyncon);
+prefManager.setBoolPref("extensions.TurnOfftheLights.dynamic10", mustbesyncon);
 prefManager.setBoolPref("extensions.TurnOfftheLights.hoveroptiondyn5", mustbesyncon);
 prefManager.setBoolPref("extensions.TurnOfftheLights.autoplayonly", mustbesyncon);
 prefManager.setBoolPref("extensions.TurnOfftheLights.autoplayDomains", mustbesyncon);
@@ -2401,6 +3007,17 @@ prefManager.setBoolPref("extensions.TurnOfftheLights.lampandnightmode", mustbesy
 prefManager.setBoolPref("extensions.TurnOfftheLights.eyechecklistwhite", mustbesyncon);
 prefManager.setBoolPref("extensions.TurnOfftheLights.eyechecklistblack", mustbesyncon);
 prefManager.setBoolPref("extensions.TurnOfftheLights.autostopDomains", mustbesyncon);
+prefManager.setBoolPref("extensions.TurnOfftheLights.nightmodebck", mustbesyncon);
+prefManager.setBoolPref("extensions.TurnOfftheLights.nightmodetxt", mustbesyncon);
+prefManager.setBoolPref("extensions.TurnOfftheLights.no360youtube", mustbesyncon);
+prefManager.setBoolPref("extensions.TurnOfftheLights.no360youtube", mustbesyncon);
+prefManager.setBoolPref("extensions.TurnOfftheLights.videotool", mustbesyncon);
+prefManager.setBoolPref("extensions.TurnOfftheLights.reflection", mustbesyncon);
+prefManager.setBoolPref("extensions.TurnOfftheLights.reflectionamount", mustbesyncon);
+prefManager.setBoolPref("extensions.TurnOfftheLights.videotoolonly", mustbesyncon);
+prefManager.setBoolPref("extensions.TurnOfftheLights.videotoolchecklistwhite", mustbesyncon);
+prefManager.setBoolPref("extensions.TurnOfftheLights.videotoolchecklistblack", mustbesyncon);
+prefManager.setBoolPref("extensions.TurnOfftheLights.videotoolDomains", mustbesyncon);
 });
 
 });

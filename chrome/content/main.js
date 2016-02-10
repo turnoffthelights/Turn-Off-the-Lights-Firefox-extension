@@ -3,7 +3,7 @@
 
 Turn Off the Lights
 The entire page will be fading to dark, so you can watch the videos as if you were in the cinema.
-Copyright (C) 2015 Stefan vd
+Copyright (C) 2016 Stefan vd
 www.stefanvd.net
 www.turnoffthelights.com
 
@@ -73,8 +73,8 @@ if (firstrun) {
   Services.prefs.setBoolPref("extensions.TurnOfftheLights.firstrun", false);
   Services.prefs.setCharPref("extensions.TurnOfftheLights.installedVersion", curVersion);
   /* Code related to firstrun */
-  window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("http://www.turnoffthelights.com/extension/firefoxguide.html"); }, 1000);
-  window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("http://www.turnoffthelights.com/extension/firefoxwelcome.html"); }, 1000);
+  window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("https://www.turnoffthelights.com/extension/firefoxguide.html"); }, 1000);
+  window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("chrome://turnoffthelights/content/options.html?welcome"); }, 1000);
 } else {
   try {
     var installedVersion = Services.prefs.getCharPref("extensions.TurnOfftheLights.installedVersion");
@@ -85,7 +85,7 @@ if (firstrun) {
 	else if ("3.0.0.15" > installedVersion) {
 		Services.prefs.setCharPref("extensions.TurnOfftheLights.installedVersion", curVersion);
 		// for v3 release
-		window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("http://turnoffthelights.com/extension/firefoxupgrade.html"); }, 1000);
+		window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("https://turnoffthelights.com/extension/firefoxupgrade.html"); }, 1000);
 	}
   } catch (ex) {
     /* Code related to a reinstall */
@@ -185,7 +185,10 @@ function actionmenu() {
 				ecosavertime: prefManager.getCharPref("extensions.TurnOfftheLights.ecosavertime"), dynamic: prefManager.getBoolPref("extensions.TurnOfftheLights.dynamic"),
 				dynamic1: prefManager.getBoolPref("extensions.TurnOfftheLights.dynamic1"), dynamic2: prefManager.getBoolPref("extensions.TurnOfftheLights.dynamic2"), 
 				dynamic3: prefManager.getBoolPref("extensions.TurnOfftheLights.dynamic3"), dynamic4: prefManager.getBoolPref("extensions.TurnOfftheLights.dynamic4"),
-				dynamic5: prefManager.getBoolPref("extensions.TurnOfftheLights.dynamic5"), hoveroptiondyn5: prefManager.getBoolPref("extensions.TurnOfftheLights.hoveroptiondyn5"), 
+				dynamic5: prefManager.getBoolPref("extensions.TurnOfftheLights.dynamic5"), dynamic6: prefManager.getBoolPref("extensions.TurnOfftheLights.dynamic6"),
+				dynamic7: prefManager.getBoolPref("extensions.TurnOfftheLights.dynamic7"), dynamic8: prefManager.getBoolPref("extensions.TurnOfftheLights.dynamic8"),
+				dynamic9: prefManager.getBoolPref("extensions.TurnOfftheLights.dynamic9"), dynamic10: prefManager.getBoolPref("extensions.TurnOfftheLights.dynamic10"),
+				hoveroptiondyn5: prefManager.getBoolPref("extensions.TurnOfftheLights.hoveroptiondyn5"),
 				autoplayonly: prefManager.getBoolPref("extensions.TurnOfftheLights.autoplayonly"), autoplayDomains: prefManager.getCharPref("extensions.TurnOfftheLights.autoplayDomains"),
 				blur: prefManager.getBoolPref("extensions.TurnOfftheLights.blur"), maxquality: prefManager.getCharPref("extensions.TurnOfftheLights.maxquality"), 
 				autowidthyoutube: prefManager.getBoolPref("extensions.TurnOfftheLights.autowidthyoutube"), customqualityyoutube: prefManager.getBoolPref("extensions.TurnOfftheLights.customqualityyoutube"), 
@@ -214,7 +217,12 @@ function actionmenu() {
 				nmcustomy: prefManager.getCharPref("extensions.TurnOfftheLights.nmcustomy"), nightactivetime: prefManager.getBoolPref("extensions.TurnOfftheLights.nightactivetime"),
 				nmbegintime: prefManager.getCharPref("extensions.TurnOfftheLights.nmbegintime"), nmendtime: prefManager.getCharPref("extensions.TurnOfftheLights.nmendtime"),
 				lampandnightmode: prefManager.getBoolPref("extensions.TurnOfftheLights.lampandnightmode"), eyechecklistwhite: prefManager.getBoolPref("extensions.TurnOfftheLights.eyechecklistwhite"),
-				eyechecklistblack: prefManager.getBoolPref("extensions.TurnOfftheLights.eyechecklistblack"), autostopDomainsBox: prefManager.getCharPref("extensions.TurnOfftheLights.autostopDomains")
+				eyechecklistblack: prefManager.getBoolPref("extensions.TurnOfftheLights.eyechecklistblack"), autostopDomainsBox: prefManager.getCharPref("extensions.TurnOfftheLights.autostopDomains"),
+				nightmodebck: prefManager.getCharPref("extensions.TurnOfftheLights.nightmodebck"), nightmodetxt: prefManager.getCharPref("extensions.TurnOfftheLights.nightmodetxt"),
+				no360youtube: prefManager.getBoolPref("extensions.TurnOfftheLights.no360youtube"), videotool: prefManager.getBoolPref("extensions.TurnOfftheLights.videotool"),
+				reflection: prefManager.getBoolPref("extensions.TurnOfftheLights.reflection"), reflectionamount: prefManager.getCharPref("extensions.TurnOfftheLights.reflectionamount"),
+				videotoolonly: prefManager.getBoolPref("extensions.TurnOfftheLights.videotoolonly"), videotoolchecklistwhite: prefManager.getBoolPref("extensions.TurnOfftheLights.videotoolchecklistwhite"),
+				videotoolchecklistblack: prefManager.getBoolPref("extensions.TurnOfftheLights.videotoolchecklistblack"), videotoolDomains: prefManager.getCharPref("extensions.TurnOfftheLights.videotoolDomains")
 				});
 			}
 			else if ( request.name == "automatic" ) {
@@ -348,13 +356,13 @@ function actionmenu() {
 
 //---
 // Right click menu	
-	ns.productnameClick = function() {window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("http://www.turnoffthelights.com/"); }, 100);}
+	ns.productnameClick = function() {window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("https://www.turnoffthelights.com/"); }, 100);}
 	ns.optionpageClick = function() {window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("chrome://turnoffthelights/content/options.html"); }, 100);}
-	ns.welcomeguidepageClick = function() {window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("http://www.turnoffthelights.com/extension/firefoxguide.html"); }, 100);}
-	ns.donatepageClick = function() {window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("http://www.turnoffthelights.com/donate.html"); }, 100);}
+	ns.welcomeguidepageClick = function() {window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("https://www.turnoffthelights.com/extension/firefoxguide.html"); }, 100);}
+	ns.donatepageClick = function() {window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("https://www.turnoffthelights.com/donate.html"); }, 100);}
 	ns.ratepageClick = function() {window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("https://addons.mozilla.org/firefox/addon/turn-off-the-lights/reviews/"); }, 100);}
 	ns.tellafriendpageClick = function() {window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("mailto:youremail?subject=Turn Off the Lights Firefox addon&body=Hé, This is amazing. I just tried today this Turn Off the Lights Firefox addon https://addons.mozilla.org/en-US/firefox/addon/turn-off-the-lights/"); }, 100);}
-	ns.tweetpageClick = function() {window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("http://twitter.com/home?status=Try%20self%20this%20amazing%20Turn%20Off%20the%20Lights%20Firefox%20addon%20addons.mozilla.org/firefox/addon/turn-off-the-lights"); }, 100);}
+	ns.tweetpageClick = function() {window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("https://twitter.com/home?status=Try%20self%20this%20amazing%20Turn%20Off%20the%20Lights%20Firefox%20addon%20addons.mozilla.org/firefox/addon/turn-off-the-lights"); }, 100);}
 	ns.facebookpageClick = function() {window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("https://www.facebook.com/sharer/sharer.php?u=addons.mozilla.org/firefox/addon/turn-off-the-lights"); }, 100);}
 	ns.googlepluspageClick = function() {window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("https://plus.google.com/share?url=addons.mozilla.org/firefox/addon/turn-off-the-lights"); }, 100);	}
 	ns.managepageClick = function() {window.setTimeout(function(){ gBrowser.selectedTab = gBrowser.addTab("about:addons"); }, 100);	}

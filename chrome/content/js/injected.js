@@ -3,7 +3,7 @@
 
 Turn Off the Lights
 The entire page will be fading to dark, so you can watch the videos as if you were in the cinema.
-Copyright (C) 2015 Stefan vd
+Copyright (C) 2016 Stefan vd
 www.stefanvd.net
 www.turnoffthelights.com
 
@@ -28,111 +28,97 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
 //================================================
 
 (ytCinema = {
-	players: {objs: [], active: 0},
-	messageEvent: document.createEvent("Event"), // old code Firefox doesn't support new Event
-	playerStateChange: function (stateId) {
-		var message = document.getElementById("ytCinemaMessage"),
+    players: { objs: [], active: 0 },
+    messageEvent: new Event('ytCinemaMessage'),
+    playerStateChange: function (stateId) {
+        var message = document.getElementById("ytCinemaMessage"),
 			stateIO = "playerStateChange:".concat(stateId);
-		if (message && message.textContent !== stateIO) {
-			message.textContent = stateIO;
-			message.dispatchEvent(ytCinema.messageEvent);
-		}
-	},
-	initialize: function () {
-		var that = this;
-		this.messageEvent.initEvent("ytCinemaMessage", true, true);
-		window.addEventListener("load", initvideoinject, false);
-		initvideoinject();
-		function initvideoinject(e) {
-			var youtubeplayer = document.getElementById("movie_player") || null;
-			var htmlplayer = document.getElementsByTagName("video") || false;
-			
-			if (youtubeplayer !== null) { // YouTube video element
-			youtubeplayer = youtubeplayer.wrappedJSObject; // unsafeWindow context
-				var interval = window.setInterval(function () {
-					if (youtubeplayer.pause || youtubeplayer.pauseVideo) {
-						window.clearInterval(interval);
-						if (youtubeplayer.pauseVideo) {
-						//youtubeplayer.addEventListener("onStateChange", "ytCinema.playerStateChange");
-/* Opera and Firefox fix */
-startautoplay = window.setInterval(function () {
-	try {
-		// autoplay flash
-		// See http://code.google.com/apis/youtube/js_api_reference.html#Playback_status
-		// The number 1 show for => if playing video
-			if (youtubeplayer.getPlayerState() == 1){that.playerStateChange.call(that, 1);}
-			if (youtubeplayer.getPlayerState() == 2) {that.playerStateChange.call(that, 2);}
-			if (youtubeplayer.getPlayerState() == 0) {that.playerStateChange.call(that, 0);}
-	}
-	catch(err) {} // i see nothing, that is good
-},100); // 100 refreshing it							
-/* -----------------------*/
-						}
-					}
-				}, 10);
-			}
-			if (htmlplayer && htmlplayer.length > 0) { // HTML5 video elements
-				var setPlayerEvents = function(players) {
-					for(var j=0; j<players.length; j++) {
-						(function(o, p) {
-							var ev = {
-								pause: function() {if(!p.ended) {o.players.active -= 1;} if(o.players.active < 1){o.playerStateChange(2);}},
-								play: function() {o.players.active += 1; o.playerStateChange(1);},
-								ended: function() {o.players.active -= 1; if(o.players.active < 1){o.playerStateChange(0);}}
-							};
-							p.removeEventListener("pause", ev.pause); p.removeEventListener("play", ev.play); p.removeEventListener("ended", ev.ended);
-							
-							p.addEventListener("pause", ev.pause);
-							p.addEventListener("play", ev.play);
-							p.addEventListener("ended", ev.ended);
-							o.players.objs.push(p);
-						}(this.ytCinema, htmlplayer[j]));
-					}
-				};
-				
-				setPlayerEvents(htmlplayer);
-				
-				(function(o) {				
-					var triggerDOMChanges = function() {
-						var htmlplayer = document.getElementsByTagName("video") || null;
-						
-						if(htmlplayer == null || htmlplayer.length === 0) {o.players.active = 0; if(o.players.active < 1){o.playerStateChange(0);} return;}
-						
-						o.players.active = 0;
-						
-						for(var j=0; j<htmlplayer.length; j++) {
-							if(!htmlplayer[j].paused && !htmlplayer[j].ended) {
-								o.players.active += 1;
-							}
-						}
-						if(o.players.active < 1){o.playerStateChange(0);}
-						
-						setPlayerEvents(htmlplayer);
-					};
-					
-					// New Mutation Summary API Reference
-					// var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
-					// if (typeof MutationObserver == "function") {
-						// setup MutationSummary observer
-						// var videolist = document.querySelector('body');
-						// var observer = new MutationObserver(function(mutations, observer) {
-						// triggerDOMChanges();
-						// });
-					
-						// observer.observe(videolist, {
-							// subtree: true,       // observe the subtree rooted at ...videolist...
-							// childList: true,     // include childNode insertion/removals
-							// characterData: false, // include textContent changes
-							// attributes: false     // include changes to attributes within the subtree
-						// });
-					// } else {
-						// setup DOM event listeners
-						// document.addEventListener("DOMNodeRemoved", triggerDOMChanges, false);
-						// document.addEventListener("DOMNodeInserted", triggerDOMChanges, false);
-					// }
+        // console.log("Debug " + message.textContent + " " +stateIO);
+        if (message && message.textContent !== stateIO) {
+            message.textContent = stateIO;
+            message.dispatchEvent(ytCinema.messageEvent);
+        }
+    },
+    initialize: function () {
+        this.messageEvent;
+        window.addEventListener("load", initvideoinject, false);
+        document.addEventListener("DOMContentLoaded", initvideoinject, false);
+        initvideoinject();
 
-				}(this.ytCinema));				
-			}
-		}
-	}
+        // New Mutation Summary API Reference
+        var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+        if (MutationObserver) {
+            // setup MutationSummary observer
+            var videolist = document.querySelector('body');
+            var observer = new MutationObserver(function (mutations, observer) {
+                initvideoinject();
+            });
+
+            observer.observe(videolist, {
+                subtree: true,       // observe the subtree rooted at ...videolist...
+                childList: true,     // include childNode insertion/removals
+                characterData: false, // include textContent changes
+                attributes: false     // include changes to attributes within the subtree
+            });
+        } else {
+            // setup DOM event listeners
+            document.addEventListener("DOMNodeRemoved", initvideoinject, false);
+            document.addEventListener("DOMNodeInserted", initvideoinject, false);
+        }
+
+        function initvideoinject(e) {
+            var youtubeplayer = document.getElementById("movie_player") || null;
+            var htmlplayer = document.getElementsByTagName("video") || false;
+
+            if (youtubeplayer !== null) { // YouTube video element
+                var interval = window.setInterval(function () {
+                    if (youtubeplayer.pause || youtubeplayer.pauseVideo) {
+                        window.clearInterval(interval);
+                        if (youtubeplayer.pauseVideo) { youtubeplayer.addEventListener("onStateChange", "ytCinema.playerStateChange"); }
+                    }
+                }, 10);
+            }
+            if (htmlplayer && htmlplayer.length > 0) { // HTML5 video elements
+                var setPlayerEvents = function (players) {
+                    for (var j = 0; j < players.length; j++) {
+                        (function (o, p) {
+                            var ev = {
+                                pause: function () { if (!p.ended) { o.players.active -= 1; } if (o.players.active < 1) { o.playerStateChange(2); } },
+                                play: function () { o.players.active += 1; o.playerStateChange(1); },
+                                ended: function () { o.players.active -= 1; if (o.players.active < 1) { o.playerStateChange(0); } }
+                            };
+                            p.removeEventListener("pause", ev.pause); p.removeEventListener("play", ev.play); p.removeEventListener("ended", ev.ended);
+
+                            p.addEventListener("pause", ev.pause);
+                            p.addEventListener("play", ev.play);
+                            p.addEventListener("ended", ev.ended);
+                            o.players.objs.push(p);
+                        }(this.ytCinema, htmlplayer[j]));
+                    }
+                };
+
+                setPlayerEvents(htmlplayer);
+
+                (function (o) {
+                    var triggerDOMChanges = function () {
+                        var htmlplayer = document.getElementsByTagName("video") || null;
+
+                        if (htmlplayer == null || htmlplayer.length === 0) { o.players.active = 0; if (o.players.active < 1) { o.playerStateChange(0); } return; }
+
+                        o.players.active = 0;
+
+                        for (var j = 0; j < htmlplayer.length; j++) {
+                            if (!htmlplayer[j].paused && !htmlplayer[j].ended) {
+                                o.players.active += 1;
+                            }
+                        }
+                        if (o.players.active < 1) { o.playerStateChange(0); }
+
+                        setPlayerEvents(htmlplayer);
+                    };
+
+                }(this.ytCinema));
+            }
+        }
+    }
 }).initialize();

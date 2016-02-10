@@ -176,20 +176,54 @@ dynamic = response.dynamic;
 		}
 		window.onmousemove = null;
 		
-		span = document.getElementsByTagName('span');  // new youtube watch7
-		for(var i = 0; i < span.length; i++ ) 
-		{if(span[i].className == (' yt-uix-expander-head') ) {span[i].style.color = 'black';}}	
-		// YouTube video view count (set back to default)
-		var eowtitle = $('eow-title');
-		if(eowtitle){$('eow-title').style.color = '#333';$('eow-title').style.zIndex = 'auto';$('eow-title').style.position = 'relative';}
-		span = document.getElementsByTagName('span'); 
-		for(var i = 0; i < span.length; i++ )
-		{if(span[i].className == ('watch-view-count ')) {span[i].style.color = '#333';span[i].style.zIndex = 'auto';span[i].style.position = 'relative';}}
-		var watch7viewsinfo = $('watch7-views-info'); // new youtube watch7 september 2013
-		if(watch7viewsinfo){$('watch7-views-info').style.zIndex = 'auto';$('watch7-views-info').style.color = '#333';}
-		div = document.getElementsByTagName('a'); 
-		for(var i = 0; i < div.length; i++ )
-		{if(div[i].className == (' yt-uix-sessionlink     spf-link  g-hovercard')) {div[i].style.color = '#333';}}
+	    // Set everything back to the default YouTube theme
+		if (window.location.href.match(/((http:\/\/(.*youtube\.com\/.*))|(https:\/\/(.*youtube\.com\/.*)))/i)) {
+		    // YouTube video suggestions (set back to default)
+		    var watch7sidebar = $('watch7-sidebar');
+		    if (watch7sidebar) { $('watch7-sidebar').style.zIndex = 'auto'; }
+
+		    // YouTube playlist (set back to default)
+		    var watchappbarplaylist = $('watch-appbar-playlist');
+		    if (watchappbarplaylist) { $('watch-appbar-playlist').style.zIndex = 'auto'; }
+
+		    // YouTube video title (set back to default)
+		    var eowtitle = $('eow-title');
+		    if (eowtitle) { $('eow-title').style.color = '#222'; $('eow-title').style.zIndex = 'auto'; $('eow-title').style.position = 'relative'; }
+
+		    // YouTube video channel link back black (set back to default)
+		    var watch7userheader = $('watch7-user-header');
+		    if (watch7userheader) { $('watch7-user-header').style.zIndex = 'auto'; $('watch7-user-header').style.position = 'relative'; }
+
+		    var ytuserinfoa = document.querySelector('.yt-user-info a');
+		    if (ytuserinfoa) { ytuserinfoa.style.color = '#333'; }
+
+		    // YouTube infobar (set back to default)
+		    var watchdescription = $('watch-description');
+		    if (watchdescription) { $('watch-description').style.zIndex = 'auto'; $('watch-description').style.background = 'transparent'; }
+
+		    // YouTube infobar (set back to default)
+		    var likebuttonrenderlike = document.querySelector('.like-button-renderer-like-button');
+		    if (likebuttonrenderlike) { likebuttonrenderlike.style.zIndex = 'auto'; likebuttonrenderlike.style.position = 'relative'; likebuttonrenderlike.style.background = 'transparent'; }
+
+		    var likebuttonrenderdislike = document.querySelector('.like-button-renderer-dislike-button');
+		    if (likebuttonrenderdislike) { likebuttonrenderdislike.style.zIndex = 'auto'; likebuttonrenderdislike.style.position = 'relative'; likebuttonrenderdislike.style.background = 'transparent'; }
+
+		    // YouTube share buttons (set back to default)
+		    var actionsharepanel = document.querySelector('.action-panel-trigger-share');
+		    if (actionsharepanel) { actionsharepanel.style.zIndex = 'auto'; actionsharepanel.style.position = 'relative'; actionsharepanel.style.background = 'transparent'; }
+
+		    // YouTube video view count (set back to default)
+		    var watchviewcount = document.querySelector('.watch-view-count');
+		    if (watchviewcount) { watchviewcount.style.zIndex = 'auto'; watchviewcount.style.color = '#333'; }
+
+		    // YouTube video view count (set back to default)
+		    var addtobutton = document.querySelector('.addto-button');
+		    if (addtobutton) { addtobutton.style.zIndex = 'auto'; addtobutton.style.position = 'relative'; addtobutton.style.background = 'transparent'; }
+
+		    // YouTube like bar (set back to default)
+		    var videoextrasparkbars = document.querySelector('.video-extras-sparkbars');
+		    if (videoextrasparkbars) { videoextrasparkbars.style.zIndex = 'auto'; videoextrasparkbars.style.position = 'relative'; }
+		}
 	}
 	
 	function removenewframe() {
