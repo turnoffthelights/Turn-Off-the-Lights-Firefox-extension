@@ -5,7 +5,7 @@
 
   <Description about="urn:mozilla:install-manifest">
     <em:id>stefanvandamme@stefanvd.net</em:id>
-    <em:version>3.2.0.6</em:version>
+    <em:version>3.2.0.7</em:version>
 	<em:iconURL>chrome://TurnOfftheLights/content/icons/icon48.png</em:iconURL>
 	<em:icon64URL>chrome://TurnOfftheLights/content/icons/icon64.png</em:icon64URL>
 	<em:optionsURL>chrome://TurnOfftheLights/content/redirect.xul</em:optionsURL>
@@ -54,12 +54,12 @@
 		<Description>
 			<em:locale>da</em:locale>
 			<em:name>Turn Off the Lights</em:name>
-			<em:description>Hele siden vil tone ud, så du kan se videoen, som var du i biografen.</em:description>
+			<em:description>Hele siden vil nedtones til mørk farve, så du kan se videoen, som om du var i biografen.</em:description>
 		</Description>
 		<Description>
 			<em:locale>de</em:locale>
 			<em:name>Turn Off the Lights</em:name>
-			<em:description>Die ganze Seite wird abgedunkelt, sodass sie Videos wie im Kino anschauen können.</em:description>
+			<em:description>Die ganze Seite wird abgedunkelt, sodass sie Videos wie im Kino ansehen können.</em:description>
 		</Description>
 		<Description>
 			<em:locale>el</em:locale>
@@ -74,7 +74,7 @@
 		<Description>
 			<em:locale>es</em:locale>
 			<em:name>Turn Off the Lights</em:name>
-			<em:description>La página se oscurecerá completamente, así podrás ver los vídeos como si estuvieras en el cine.</em:description>
+			<em:description>La pagina entera se oscurecerá, así podrás ver los vídeos como si estuvieras en el cine.</em:description>
 		</Description>
 		<Description>
 			<em:locale>et</em:locale>
@@ -89,12 +89,12 @@
 		<Description>
 			<em:locale>fr</em:locale>
 			<em:name>Turn Off the Lights</em:name>
-			<em:description>Toute la page de votre navigateur va s’assombrir, pour que vous puissiez regarder votre vidéo comme si vous étiez au cinéma.</em:description>
+			<em:description>Toute la page va s'assombrir pour vous permettre de regarder vos vidéos comme si vous étiez au cinéma.</em:description>
 		</Description>
 		<Description>
 			<em:locale>he</em:locale>
 			<em:name>Turn Off the Lights</em:name>
-			<em:description>העמוד כולו יעומעם לאפלה, כדי שתוכלו לצפות בסרטון כאילו הייתם בקולנוע.</em:description>
+			<em:description>הדף כולו יחשיך, כך שתוכלו לצפות בסרט כאילו אתם בקולנוע.</em:description>
 		</Description>		
 		<Description>
 			<em:locale>hi</em:locale>
@@ -114,12 +114,12 @@
 		<Description>
 			<em:locale>id</em:locale>
 			<em:name>Turn Off the Lights</em:name>
-			<em:description>Keseluruhan halaman akan memudar gelap, sehingga Anda dapat menonton video seolah-olah Anda berada di bioskop.</em:description>
+			<em:description>Seluruh halaman akan menjadi gelap, sehingga kamu dapat menonton video seolah-olah berada di bioskop.</em:description>
 		</Description>	
 		<Description>
 			<em:locale>it</em:locale>
 			<em:name>Turn Off the Lights</em:name>
-			<em:description>L'intera pagina si oscurerà, permettendo la visione dei video stile cinema.</em:description>
+			<em:description>L'intera pagina si scurirà, così potrai guardare i video come tu fossi al cinema.</em:description>
 		</Description>
 		<Description>
 			<em:locale>ja</em:locale>
@@ -159,7 +159,7 @@
 		<Description>
 			<em:locale>pt</em:locale>
 			<em:name>Turn Off the Lights</em:name>
-			<em:description>A página irá escurecer para que veja o vídeo como se estivesse no cinema.</em:description>
+			<em:description>A página irá escurecer para que veja os vídeos como se estivesse no cinema.</em:description>
 		</Description>
 		<Description>
 			<em:locale>ro</em:locale>
@@ -169,7 +169,7 @@
 		<Description>
 			<em:locale>ru</em:locale>
 			<em:name>Turn Off the Lights</em:name>
-			<em:description>Затемняет содержимое веб-страницы для комфортного просмотра видео (как в кинотеатре).</em:description>
+			<em:description>Вся страница будет затемнена, Вы сможете смотреть видео, как в кинотеатре.</em:description>
 		</Description>
 		<Description>
 			<em:locale>sk</em:locale>
@@ -199,7 +199,7 @@
 		<Description>
 			<em:locale>uk</em:locale>
 			<em:name>Turn Off the Lights</em:name>
-			<em:description>Вся сторінка буде затемнена для комфортного перегляду відео (як у кінотеатрі).</em:description>
+			<em:description>Вся сторінка буде затемнена для комфортного перегляду відео, як у кінотеатрі.</em:description>
 		</Description>			
 		<Description>
 			<em:locale>vi</em:locale>
