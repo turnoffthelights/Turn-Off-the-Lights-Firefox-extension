@@ -193,6 +193,11 @@ shortcutlight = response.shortcutlight;
 			},3000);
 			}
 		}
+        
+        if (request.name == "shortcutnightmode") {
+            // Run code for ctrl+shift+n
+		    if(document.getElementById('stefanvdnightthemecheckbox')){document.getElementById('stefanvdnightthemecheckbox').click();}
+		}
 
 });
 });
@@ -318,7 +323,7 @@ var gracePeriod = 250, lastEvent = null, timeout = null;
 					switch (data[0]) {
 						case "playerStateChange":
 							//console.log("received playerStateChange", data[1]);
-							if (data[1] === "2" || data[1] === "0" || data[1] === "-1") {
+							if (data[1] === "2" || data[1] === "0" || data[1] === "-1" || data[1] === "5") {
 								shadesOff(this.player);
 								if (data[1] === "0") {
 									try {

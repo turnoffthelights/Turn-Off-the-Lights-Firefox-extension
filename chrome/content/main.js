@@ -411,6 +411,11 @@ function actionmenu() {
 		firefox.tabs.sendRequest(tab, {name: "shortcuteyeprotection"});
     };
 	
+    ns.keynightmode = function() {
+        var tab = documentToTab(gBrowser.contentDocument);
+		firefox.tabs.sendRequest(tab, {name: "shortcutnightmode"});
+    };
+    
     var documentToTab = function(doc) {
         return {
             document: doc,
@@ -444,7 +449,14 @@ function actionmenu() {
             .createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
         unicodeConverter.charset="UTF-8";
 
-        var channel=ioService.newChannel( file, "UTF-8", null);
+        var channel=ioService.newChannel2(file,
+                                      "UTF-8",
+                                      null,
+                                      null,      // aLoadingNode
+                                      Services.scriptSecurityManager.getSystemPrincipal(),
+                                      null,      // aTriggeringPrincipal
+                                      Ci.nsILoadInfo.SEC_NORMAL,
+                                      Ci.nsIContentPolicy.TYPE_OTHER);
         var input=channel.open();
         scriptableStream.init(input);
         var str=scriptableStream.read(input.available());

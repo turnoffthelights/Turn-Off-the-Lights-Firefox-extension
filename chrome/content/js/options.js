@@ -2673,6 +2673,7 @@ $("autoplayremovebutton").addEventListener('click', function() {autoplayremoveSe
 
 // YouTube quality
 $("youtubequality").addEventListener('click', function() {save_options();});
+$("youtubequality").addEventListener('change', function() {save_options();});
 
 // atmosphere Add website
 $("atmosphereaddbutton").addEventListener('click', function() {atmosphereaddWhitelistDomain();});

@@ -283,10 +283,10 @@ if (window.location.href.match(/((http:\/\/(gaming.youtube\.com\/.*))|(https:\/\
 var ytgpersistentplayer = document.getElementsByTagName('ytg-persistent-player');
     for(var i = 0; i < ytgpersistentplayer.length; i++ ){
         if(ytgpersistentplayer[i].getAttribute('id') == "player"){
-            ytgpersistentplayer[i].style.zIndex = "1001!important";
+            ytgpersistentplayer[i].style.cssText += 'z-index:1000 !important';
         }
     }
-}
+} // plus use YouTube Options also on the gaming site, for the html5 player visibility 
 
 // YouTube options
 if (window.location.href.match(/((http:\/\/(.*youtube\.com\/.*))|(https:\/\/(.*youtube\.com\/.*)))/i)){

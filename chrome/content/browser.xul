@@ -51,5 +51,6 @@
         <key id="TurnOffthelightskeyopacityincrease" modifiers="alt" keycode="VK_UP" oncommand="TurnOfftheLights.shortcutopacityincrease();"/>
         <key id="TurnOffthelightskeyopacitydecrease" modifiers="alt" keycode="VK_DOWN" oncommand="TurnOfftheLights.shortcutopacitydecrease();"/>
         <key id="TurnOffthelightskeyalllightsoff" modifiers="alt" keycode="VK_MULTIPLY" oncommand="TurnOfftheLights.shortcutalllightstab();"/>
+        <key id="TurnOffthelightskeynightmode" modifiers="control shift" key="n" oncommand="TurnOfftheLights.keynightmode();"/>
     </keyset>
 </overlay>
