@@ -33,7 +33,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
     playerStateChange: function (stateId) {
         var message = document.getElementById("ytCinemaMessage"),
 			stateIO = "playerStateChange:".concat(stateId);
-        // console.log("Debug " + message.textContent + " " +stateIO);
+        //console.log("Debug " + message.textContent + " " +stateIO);
         if (message && message.textContent !== stateIO) {
             message.textContent = stateIO;
             message.dispatchEvent(ytCinema.messageEvent);
@@ -69,7 +69,7 @@ To view a copy of this license, visit http://creativecommons.org/licenses/GPL/2.
         function initvideoinject(e) {
             var youtubeplayer = document.getElementById("movie_player") || null;
             var htmlplayer = document.getElementsByTagName("video") || false;
-
+           
             if (youtubeplayer !== null) { // YouTube video element
                 var interval = window.setInterval(function () {
                     if (youtubeplayer.pause || youtubeplayer.pauseVideo) {

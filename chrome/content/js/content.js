@@ -278,6 +278,8 @@ videotoolDomains = response.videotoolDomains;
 videotoolchecklistwhite = response.videotoolchecklistwhite;
 videotoolchecklistblack = response.videotoolchecklistblack;
 
+function $(id) { return document.getElementById(id); }
+
 // observeDOM - dynamic check
 var observeDOM = (function(){
     var MutationObserver = window.MutationObserver || window.WebKitMutationObserver,
@@ -300,7 +302,6 @@ var observeDOM = (function(){
     }
 })();
 
-
 if(autoplay == true){
 
 function autoplayfunction(){
@@ -316,7 +317,7 @@ var gracePeriod = 250, lastEvent = null, timeout = null;
 				}
 			}
 			
-			function dispatch (data) {
+			function dispatch(data) {
 				if (data !== lastEvent) {
 					lastEvent = data;
 					data = String(data).split(":");
@@ -342,7 +343,7 @@ var gracePeriod = 250, lastEvent = null, timeout = null;
 					}
 				}
 			}
-
+			
 	function playerPause(player) {
 		if (player !== null) {
 			if (typeof(player.pauseVideo) === "function") {
